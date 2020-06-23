@@ -12,11 +12,13 @@ const Layout = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(matchProps) => (
-        <div>
+        <React.Fragment>
           <Header />
-          <Component {...matchProps} />
+          <div className="content-wrapper">
+            <Component {...matchProps} />
+          </div>
           <Footer />
-        </div>
+        </React.Fragment>
       )}
     />
   );

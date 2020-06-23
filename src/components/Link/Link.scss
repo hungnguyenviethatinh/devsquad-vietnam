@@ -1,0 +1,9 @@
+.link-text {
+  color: #333333;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
