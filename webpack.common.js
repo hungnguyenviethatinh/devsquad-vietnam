@@ -64,7 +64,7 @@ module.exports = {
           chunks: 'all',
         },
         redux: {
-          test: /[\\/]node_modules[\\/](react-redux|redux|redux-saga)[\\/]/,
+          test: /[\\/]node_modules[\\/](react-redux|redux|redux-thunk)[\\/]/,
           name: 'redux',
           chunks: 'all',
         },
