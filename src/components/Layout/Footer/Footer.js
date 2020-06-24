@@ -7,28 +7,30 @@ import LinkedinLink from '../../LinkedinLink';
 import './Footer.scss';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className="footer-wrapper">
       <div className="footer">
-        <div className="footer-menu">
-          <Link className="footer-menu-item" id="home" to="/home">
+        <div className="site-map">
+          <Link className="site-map-link" id="home" to="/home">
             Home
           </Link>
-          <Link className="footer-menu-item" id="about-us" to="/about-us">
+          <Link className="site-map-link" id="about-us" to="/about-us">
             About Us
           </Link>
-          <Link className="footer-menu-item" id="contact" to="/contact">
+          <Link className="site-map-link" id="contact" to="/contact">
             Contact
           </Link>
-          <Link className="footer-menu-item" id="blogs" to="/blogs">
+          <Link className="site-map-link" id="blogs" to="/blogs">
             Blog
           </Link>
         </div>
-        <div className="connect-link">
-          <FacebookLink className="facebook" />
-          <LinkedinLink className="linkedin" />
+        <div className="connect-us">
+          <FacebookLink className="facebook-link" color="#4F4F4F" />
+          <LinkedinLink className="linkedin-link" color="#4F4F4F" />
         </div>
-        <div className="copy-right">{`© Copyright ${new Date().getFullYear()} DevSquad`}</div>
+        <div className="copy-right">{`© Copyright ${currentYear} DevSquad`}</div>
       </div>
     </div>
   );
