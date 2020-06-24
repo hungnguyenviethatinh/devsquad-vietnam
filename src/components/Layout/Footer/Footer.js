@@ -13,7 +13,7 @@ const Footer = () => {
     <div className="footer-wrapper">
       <div className="footer">
         <div className="site-map">
-          <Link className="site-map-link" id="home" to="/home">
+          <Link className="site-map-link" id="home" to="/">
             Home
           </Link>
           <Link className="site-map-link" id="about-us" to="/about-us">

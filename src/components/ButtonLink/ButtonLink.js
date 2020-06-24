@@ -10,7 +10,7 @@ const ButtonLink = (props) => {
   return (
     <Link
       role="button"
-      className={clsx(className, 'button-link button-link-text')}
+      className={clsx(className, 'btn button-link button-link-text')}
       id={id}
       title={title}
       to={to}

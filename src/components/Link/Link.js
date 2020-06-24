@@ -1,15 +1,27 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import './Link.scss';
 
 const Link = (props) => {
-  const { className, id, title, to, ...rest } = props;
+  const {
+    activeClassName,
+    activeStyle,
+    className,
+    exact,
+    id,
+    title,
+    to,
+    ...rest
+  } = props;
 
   return (
-    <RouterLink
+    <NavLink
+      exact={exact}
+      activeClassName={clsx(activeClassName, 'link-active')}
+      activeStyle={activeStyle}
       className={clsx(className, 'link-text')}
       id={id}
       title={title}
@@ -20,6 +32,9 @@ const Link = (props) => {
 };
 
 Link.propTypes = {
+  exact: PropTypes.bool,
+  activeClassName: PropTypes.string,
+  activeStyle: PropTypes.object,
   className: PropTypes.string,
   id: PropTypes.string,
   title: PropTypes.string,
@@ -27,6 +42,9 @@ Link.propTypes = {
 };
 
 Link.defaultProps = {
+  exact: true,
+  activeClassName: '',
+  activeStyle: null,
   className: '',
   id: '',
   title: '',
