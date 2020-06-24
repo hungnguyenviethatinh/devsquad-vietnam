@@ -28,7 +28,7 @@ const Header = () => {
       <div className="action-link action-link-flex">
         <FacebookLink />
         <LinkedinLink />
-        <ButtonLink className="button-subscribe">Subscribe</ButtonLink>
+        <ButtonLink className="subscribe-link">Subscribe</ButtonLink>
       </div>
     </nav>
   );

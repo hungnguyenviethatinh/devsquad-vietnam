@@ -13,7 +13,7 @@
   padding: 0;
 }
 
-.footer-menu {
+.site-map {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,18 +22,16 @@
   width: 247px;
   height: 16px;
   margin-bottom: 18px;
+
+  .site-map-link {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 20px 0px;
+    height: 16px;
+  }
 }
 
-.footer-menu-item {
-  font-size: 12px;
-  line-height: 16px;
-  flex: none;
-  align-self: center;
-  margin: 20px 0px;
-  height: 16px;
-}
-
-.connect-link {
+.connect-us {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -41,21 +39,10 @@
   width: 76px;
   height: 38px;
 
-  .facebook,
-  .linkedin {
+  .facebook-link,
+  .linkedin-link {
     width: 38px;
     height: 38px;
-    flex: none;
-    align-self: center;
-    margin: 0px 0px;
-  }
-
-  .facebook {
-    order: 0;
-  }
-
-  .linkedin {
-    order: 1;
   }
 }
 
