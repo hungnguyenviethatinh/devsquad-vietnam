@@ -1,5 +1,12 @@
 .content-wrapper {
-  margin-top: 68px;
   display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-flow: column nowrap;
   flex-grow: 1;
+  margin-top: 68px;
 }

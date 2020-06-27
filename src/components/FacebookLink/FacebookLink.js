@@ -9,19 +9,21 @@ const FacebookLink = (props) => {
   const { className, color } = props;
 
   return (
-    <a
-      className={clsx(className, 'facebook-link-text')}
-      href="/"
-      target="_blank"
-    >
-      <i
-        style={{
-          color,
-        }}
-        className="fab fa-facebook-f"
-        aria-hidden="true"
-      ></i>
-    </a>
+    <div className="facebook-link-component">
+      <a
+        className={clsx(className, 'facebook-link-text')}
+        href="/"
+        target="_blank"
+      >
+        <i
+          style={{
+            color,
+          }}
+          className="fab fa-facebook-f"
+          aria-hidden="true"
+        ></i>
+      </a>
+    </div>
   );
 };
 

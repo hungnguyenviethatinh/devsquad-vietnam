@@ -1,0 +1,43 @@
+.box-wrapper {
+  padding: 40px 194px;
+
+  .leading {
+    color: #333333;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .sub-leading {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #333333;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-flow: column nowrap;
+
+    .contact-email,
+    .contact-number,
+    .contact-address {
+      color: #333333;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 18px;
+      margin: 8px 0px;
+      text-decoration: none;
+
+      svg {
+        margin-right: 10px;
+      }
+    }
+  }
+}

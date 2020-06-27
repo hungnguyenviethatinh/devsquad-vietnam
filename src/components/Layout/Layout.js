@@ -15,9 +15,11 @@ const Layout = ({ component: Component, ...rest }) => {
         <React.Fragment>
           <Header />
           <div className="content-wrapper">
-            <Component {...matchProps} />
+            <div className="content">
+              <Component {...matchProps} />
+            </div>
+            <Footer />
           </div>
-          <Footer />
         </React.Fragment>
       )}
     />

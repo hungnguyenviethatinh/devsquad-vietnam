@@ -1,10 +1,14 @@
-.button {
+.button-component {
   background: #2ea661;
   border-radius: 6px;
   padding: 10px 14px;
+
+  &:hover {
+    color: #ffffff;
+  }
 }
 
-.button-text {
+.button-component-text {
   color: #ffffff;
   font-weight: 600;
   font-size: 14px;

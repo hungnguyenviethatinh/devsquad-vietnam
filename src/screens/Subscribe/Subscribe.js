@@ -1,9 +1,10 @@
 import React from 'react';
 
+import Subscribe from '../../features/Subscribe';
 import './Subscribe.scss';
 
 const SubscribeScreen = () => {
-  return <div>Subscribe</div>;
+  return <Subscribe />;
 };
 
 export default SubscribeScreen;
