@@ -7,7 +7,7 @@ import LinkedinLink from '../../components/LinkedinLink';
 
 import mockData from '../../utils';
 
-const Subscribe = () => {
+const AboutUs = () => {
   return (
     <React.Fragment>
       <PageHeader title="About Us" />
@@ -29,4 +29,4 @@ const Subscribe = () => {
   );
 };
 
-export default Subscribe;
+export default AboutUs;

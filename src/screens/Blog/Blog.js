@@ -1,9 +1,10 @@
 import React from 'react';
 
+import Blog from '../../features/Blog';
 import './Blog.scss';
 
 const BlogScreen = () => {
-  return <div>Blogs</div>;
+  return <Blog />;
 };
 
 export default BlogScreen;
