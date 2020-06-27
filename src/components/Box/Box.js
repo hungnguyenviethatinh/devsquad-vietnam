@@ -7,7 +7,7 @@ import './Box.scss';
 const Box = (props) => {
   const { className, children } = props;
 
-  return <div className={clsx(className, 'box')}>{children}</div>;
+  return <div className={clsx(className, 'box-component')}>{children}</div>;
 };
 
 Box.propTypes = {

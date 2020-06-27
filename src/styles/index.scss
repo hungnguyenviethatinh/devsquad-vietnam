@@ -1,6 +1,6 @@
 * {
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -12,16 +12,14 @@ html {
 body {
   @extend html;
   background: #e5e5e5;
+  color: #333333;
   font-family: Montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
-  color: #333333;
 }
 
 #root {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  @extend html;
 }

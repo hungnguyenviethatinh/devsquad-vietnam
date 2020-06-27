@@ -5,12 +5,12 @@ import clsx from 'clsx';
 import './Card.scss';
 
 const Card = (props) => {
-  const { className, image, title, author, text } = props;
+  const { className, image, title, author, text, ...rest } = props;
 
   return (
-    <div className={clsx(className, 'card')} style="width: 18rem;">
-      <img src={image} className="card-img card-img-top" alt={title} />
-      <div className="card-body">
+    <div className={clsx(className, 'card-component')} {...rest}>
+      <img src={image} className="card-img" alt={title} />
+      <div className="card-text-wrapper">
         <h3 className="card-title">{title}</h3>
         <small className="card-author">{author}</small>
         <p className="card-text">{text}</p>

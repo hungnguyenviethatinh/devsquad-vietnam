@@ -1,0 +1,32 @@
+.page-header-component {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url('./image_002.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  height: 200px;
+
+  .page-header-component-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    padding: 0px 215px;
+  }
+
+  .leading {
+    color: #ffffff;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 44px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 120px;
+  }
+}

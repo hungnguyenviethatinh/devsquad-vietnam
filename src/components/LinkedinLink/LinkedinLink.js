@@ -9,19 +9,21 @@ const LinkedinLink = (props) => {
   const { className, color } = props;
 
   return (
-    <a
-      className={clsx(className, 'linkedin-link-text')}
-      href="/"
-      target="_blank"
-    >
-      <i
-        style={{
-          color,
-        }}
-        className="fab fa-linkedin-in"
-        aria-hidden="true"
-      ></i>
-    </a>
+    <div className="linkedin-link-component">
+      <a
+        className={clsx(className, 'linkedin-link-text')}
+        href="/"
+        target="_blank"
+      >
+        <i
+          style={{
+            color,
+          }}
+          className="fab fa-linkedin-in"
+          aria-hidden="true"
+        ></i>
+      </a>
+    </div>
   );
 };
 

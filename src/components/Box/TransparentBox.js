@@ -3,7 +3,6 @@ import Box from './Box';
 
 import './Box.scss';
 
-const TransparentBox = () => <Box className="box-transparent" />;
-
+const TransparentBox = () => <Box className="bg-transparent" />;
 
 export default TransparentBox;
