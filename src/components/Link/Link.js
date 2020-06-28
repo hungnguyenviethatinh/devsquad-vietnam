@@ -9,6 +9,7 @@ const Link = (props) => {
   const {
     activeClassName,
     activeStyle,
+    children,
     className,
     exact,
     id,
@@ -27,7 +28,9 @@ const Link = (props) => {
       title={title}
       to={to}
       {...rest}
-    />
+    >
+      {children}
+    </NavLink>
   );
 };
 
@@ -35,6 +38,7 @@ Link.propTypes = {
   exact: PropTypes.bool,
   activeClassName: PropTypes.string,
   activeStyle: PropTypes.object,
+  children: PropTypes.any.isRequired,
   className: PropTypes.string,
   id: PropTypes.string,
   title: PropTypes.string,
@@ -45,6 +49,7 @@ Link.defaultProps = {
   exact: true,
   activeClassName: '',
   activeStyle: null,
+  children: null,
   className: '',
   id: '',
   title: '',

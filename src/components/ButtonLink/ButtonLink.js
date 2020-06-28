@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import './ButtonLink.scss';
 
 const ButtonLink = (props) => {
-  const { className, id, title, to, ...rest } = props;
+  const { className, id, title, to, children, ...rest } = props;
   return (
     <Link
       role="button"
@@ -15,7 +15,9 @@ const ButtonLink = (props) => {
       title={title}
       to={to}
       {...rest}
-    />
+    >
+      {children}
+    </Link>
   );
 };
 
@@ -24,6 +26,7 @@ ButtonLink.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
   to: PropTypes.string,
+  children: PropTypes.any.isRequired,
 };
 
 ButtonLink.defaultProps = {
@@ -31,6 +34,7 @@ ButtonLink.defaultProps = {
   id: '',
   title: '',
   to: '',
+  children: null,
 };
 
 export default ButtonLink;
