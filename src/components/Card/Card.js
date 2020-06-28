@@ -2,16 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
+import Link from '../Link';
 import './Card.scss';
 
 const Card = (props) => {
-  const { className, image, title, author, text, ...rest } = props;
+  const { className, image, title, author, text, linkHref, ...rest } = props;
 
   return (
     <div className={clsx(className, 'card-component')} {...rest}>
       <img src={image} className="card-img" alt={title} />
       <div className="card-text-wrapper">
-        <h3 className="card-title">{title}</h3>
+        <Link className="card-title" title={title} to={linkHref}>
+          {title}
+        </Link>
+        <br />
         <small className="card-author">{author}</small>
         <p className="card-text">{text}</p>
       </div>
@@ -25,6 +29,7 @@ Card.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
   text: PropTypes.string,
+  linkHref: PropTypes.string,
 };
 
 Card.defaultProps = {
@@ -33,6 +38,7 @@ Card.defaultProps = {
   title: '',
   author: '',
   text: '',
+  linkHref: '',
 };
 
 export default Card;

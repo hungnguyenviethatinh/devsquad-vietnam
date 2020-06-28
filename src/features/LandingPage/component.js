@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Aim from '../../components/Aim';
 import Button from '../../components/Button';
@@ -7,6 +7,21 @@ import Card from '../../components/Card';
 import mockData from '../../utils';
 
 const LandingPage = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [page, setPage] = useState(1);
+
+  const handleViewMore = () => {
+    if (page < mockData.blogs.length / 3) {
+      setPage(page + 1);
+    }
+  };
+
+  const getBlogs = () => {
+    setBlogs(mockData.blogs.slice(0, page * 3));
+  };
+
+  useEffect(() => getBlogs(), [page]);
+
   return (
     <React.Fragment>
       <div className="page-header-wrapper">
@@ -44,18 +59,19 @@ const LandingPage = () => {
           <div className="col-12">
             <h1 className="leading">Blog</h1>
           </div>
-          {mockData.blogs.map((blog, index) => (
-            <div key={index} className="col-4">
+          {blogs.map((blog, index) => (
+            <div key={index} className="blog-item col-4">
               <Card
                 image={blog.image}
                 title={blog.title}
                 author={blog.author}
                 text={blog.text}
+                linkHref={`/blog/${index}`}
               />
             </div>
           ))}
           <div className="col-12 button-wrapper">
-            <Button text="View more blog posts" />
+            <Button text="View more blog posts" onClick={handleViewMore} />
           </div>
         </div>
       </div>
