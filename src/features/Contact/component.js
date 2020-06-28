@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import Box from '../../components/Box';
 import Button from '../../components/Button';
@@ -6,7 +7,32 @@ import PageHeader from '../../components/PageHeader';
 import TextArea from '../../components/TextArea';
 import TextField from '../../components/TextField';
 
-const Contact = () => {
+const Contact = (props) => {
+  const { isLoading, message, dispatchContactUs } = props;
+
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleDataChange = (prop) => (event) => {
+    setData({
+      ...data,
+      [prop]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatchContactUs(data);
+  };
+
+  useEffect(() => {
+    console.log(isLoading);
+    console.log(message);
+  }, [isLoading, message]);
+
   return (
     <React.Fragment>
       <PageHeader title="Contact Us" />
@@ -37,27 +63,45 @@ const Contact = () => {
             </a>
           </div>
           <h1 className="leading">Drop us a message</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <TextField className="form-control" placeholder="Enter name" />
+              <TextField
+                className="form-control"
+                placeholder="Enter name"
+                value={data.name}
+                onChange={handleDataChange('name')}
+              />
             </div>
             <div className="form-group">
               <TextField
                 className="form-control"
                 placeholder="Enter email address"
+                value={data.email}
+                onChange={handleDataChange('email')}
               />
             </div>
             <div className="form-group">
-              <TextArea className="form-control" placeholder="Your message" />
+              <TextArea
+                className="form-control"
+                placeholder="Your message"
+                value={data.message}
+                onChange={handleDataChange('message')}
+              />
             </div>
             <div className="form-group">
-              <Button text="Drop message" />
+              <Button disabled={isLoading} type="submit" text="Drop message" />
             </div>
           </form>
         </div>
       </Box>
     </React.Fragment>
   );
+};
+
+Contact.propTypes = {
+  isLoading: PropTypes.bool,
+  message: PropTypes.string,
+  dispatchContactUs: PropTypes.func,
 };
 
 export default Contact;

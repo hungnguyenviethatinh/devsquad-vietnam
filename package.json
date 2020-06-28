@@ -46,8 +46,10 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.1",
     "@fortawesome/fontawesome-free": "^5.13.1",
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "clsx": "^1.1.1",
+    "immutable": "^4.0.0-rc.12",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
@@ -56,6 +58,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
+    "redux-immutable": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0"
   },

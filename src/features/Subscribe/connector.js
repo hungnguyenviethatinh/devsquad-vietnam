@@ -1,3 +1,16 @@
+import { connect } from 'react-redux';
+import { dispatchSubscribe } from './actions';
+import { getIsLoading, getMessage } from './selectors';
+
 import Subscribe from './component';
 
-export default Subscribe;
+const mapStateToProps = (state) => ({
+  isLoading: getIsLoading(state),
+  message: getMessage(state),
+});
+
+const dispatcher = {
+  dispatchSubscribe,
+};
+
+export default connect(mapStateToProps, dispatcher)(Subscribe);

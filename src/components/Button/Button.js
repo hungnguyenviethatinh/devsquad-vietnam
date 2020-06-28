@@ -5,12 +5,13 @@ import clsx from 'clsx';
 import './Button.scss';
 
 const Button = (props) => {
-  const { id, className, text, type, onClick, ...rest } = props;
+  const { id, className, text, type, disabled, onClick, ...rest } = props;
 
   return (
     <button
       id={id}
       type={type}
+      disabled={disabled}
       className={clsx(className, 'btn button-component button-component-text')}
       onClick={onClick}
       {...rest}
@@ -25,6 +26,7 @@ Button.propTypes = {
   className: PropTypes.string,
   text: PropTypes.string,
   type: PropTypes.string,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
@@ -33,6 +35,7 @@ Button.defaultProps = {
   className: '',
   text: '',
   type: 'button',
+  disabled: false,
   onClick: () => {},
 };
 
