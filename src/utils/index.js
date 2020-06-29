@@ -1,10 +1,6 @@
-import { aboutUs, aims, blogs, postDetail } from './mock';
+import { aims, introduction } from './data';
 
-const mockData = {
-  aboutUs,
+export const data = {
   aims,
-  blogs,
-  postDetail,
+  aboutUs: introduction,
 };
-
-export default mockData;

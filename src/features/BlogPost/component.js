@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 
 import ButtonLink from '../../components/ButtonLink';
 
-import mockData from '../../utils';
-
-const BlogPost = () => {
+const BlogPost = (props) => {
   const { id } = useParams();
 
-  const [blog, setBlog] = useState({});
+  const { isLoading, message, blog, dispatchGetBlog } = props;
 
-  const getBlog = (blogId) => {
-    setBlog(mockData.blogs[blogId]);
-  };
+  useEffect(() => dispatchGetBlog(id), []);
 
-  useEffect(() => getBlog(id), []);
+  useEffect(() => {
+    console.log(isLoading);
+    console.log(message);
+  }, [isLoading, message]);
 
   return (
     <div className="blog-post-wrapper">
@@ -39,13 +39,20 @@ const BlogPost = () => {
       </div>
       <div
         className="post-text-wrapper"
-        dangerouslySetInnerHTML={{ __html: mockData.postDetail.text }}
+        dangerouslySetInnerHTML={{ __html: blog.text }}
       ></div>
       <div className="button-wrapper">
         <ButtonLink to="/blogs">Back to blog page</ButtonLink>
       </div>
     </div>
   );
+};
+
+BlogPost.propTypes = {
+  isLoading: PropTypes.bool,
+  message: PropTypes.string,
+  blog: PropTypes.object,
+  dispatchGetBlog: PropTypes.func,
 };
 
 export default BlogPost;

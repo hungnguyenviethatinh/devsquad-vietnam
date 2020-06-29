@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Aim from '../../components/Aim';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
 
-import mockData from '../../utils';
+import { BLOG_ITEMS_PER_CLICK } from '../../core/Constants';
 
-const LandingPage = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [page, setPage] = useState(1);
+import { aims } from '../../utils/data';
 
-  const handleViewMore = () => {
-    if (page < mockData.blogs.length / 3) {
-      setPage(page + 1);
+const LandingPage = (props) => {
+  const { isLoading, message, blogs, totalCount, dispatchGetBlogs } = props;
+
+  const [clickCount, setClickCount] = useState(1);
+
+  const handleShowMore = () => {
+    if (blogs.length < totalCount) {
+      setClickCount(clickCount + 1);
     }
   };
 
-  const getBlogs = () => {
-    setBlogs(mockData.blogs.slice(0, page * 3));
-  };
+  useEffect(() => dispatchGetBlogs(clickCount, BLOG_ITEMS_PER_CLICK), [
+    clickCount,
+  ]);
 
-  useEffect(() => getBlogs(), [page]);
+  useEffect(() => {
+    console.log(isLoading);
+    console.log(message);
+  }, [isLoading, message]);
 
   return (
     <React.Fragment>
@@ -43,7 +50,7 @@ const LandingPage = () => {
             firm.
           </p>
           <div className="aims">
-            {mockData.aims.map((aim, index) => (
+            {aims.map((aim, index) => (
               <Aim
                 key={index}
                 image={aim.image}
@@ -66,17 +73,29 @@ const LandingPage = () => {
                 title={blog.title}
                 author={blog.author}
                 text={blog.text}
-                linkHref={`/blog/${index}`}
+                linkHref={`/blog/${blog.id}`}
               />
             </div>
           ))}
           <div className="col-12 button-wrapper">
-            <Button text="View more blog posts" onClick={handleViewMore} />
+            <Button
+              disabled={isLoading}
+              text="View more blog posts"
+              onClick={handleShowMore}
+            />
           </div>
         </div>
       </div>
     </React.Fragment>
   );
+};
+
+LandingPage.propTypes = {
+  isLoading: PropTypes.bool,
+  message: PropTypes.string,
+  blogs: PropTypes.array,
+  totalCount: PropTypes.number,
+  dispatchGetBlogs: PropTypes.func,
 };
 
 export default LandingPage;

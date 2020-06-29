@@ -99,6 +99,10 @@ const PageNavigation = (props) => {
   };
 
   const getPageNumbers = () => {
+    if (totalPage === 0) {
+      return;
+    }
+
     let range = [];
     if (totalPage <= MaxShowedPage) {
       range = getRange(1, totalPage);

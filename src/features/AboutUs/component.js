@@ -5,7 +5,7 @@ import PageHeader from '../../components/PageHeader';
 import FacebookLink from '../../components/FacebookLink';
 import LinkedinLink from '../../components/LinkedinLink';
 
-import mockData from '../../utils';
+import { introduction as aboutUs } from '../../utils/data';
 
 const AboutUs = () => {
   return (
@@ -13,7 +13,7 @@ const AboutUs = () => {
       <PageHeader title="About Us" />
       <Box>
         <div className="box-wrapper">
-          {mockData.aboutUs.map((item, index) => (
+          {aboutUs.map((item, index) => (
             <React.Fragment key={index}>
               <h1 className="leading">{item.title}</h1>
               <p className="text">{item.text}</p>

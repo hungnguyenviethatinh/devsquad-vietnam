@@ -1,24 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import { TransparentBox } from '../../components/Box';
 import Card from '../../components/Card';
 import PageHeader from '../../components/PageHeader';
 import PageNavigation from '../../components/PageNavigation';
 
-import mockData from '../../utils';
+import { BLOG_ITEMS_PER_PAGE } from '../../core/Constants';
 
-const Blog = () => {
-  const [blogs, setBlogs] = useState([]);
+const Blog = (props) => {
+  const { isLoading, message, blogs, totalCount, dispatchGetBlogs } = props;
 
   const handlePageChange = (page) => {
-    getBlogs(page, 3);
+    getBlogs(page);
   };
 
-  const getBlogs = (page, pageSize) => {
-    setBlogs(mockData.blogs.slice((page - 1) * pageSize, page * pageSize));
+  const getBlogs = (page, pageSize = BLOG_ITEMS_PER_PAGE) => {
+    dispatchGetBlogs(page, pageSize);
   };
 
-  useEffect(() => getBlogs(1, 3), []);
+  useEffect(() => getBlogs(1), []);
+
+  useEffect(() => {
+    console.log(isLoading);
+    console.log(message);
+  }, [isLoading, message]);
 
   return (
     <React.Fragment>
@@ -32,15 +38,15 @@ const Blog = () => {
                 title={blog.title}
                 author={blog.author}
                 text={blog.text}
-                linkHref={`/blog/${index}`}
+                linkHref={`/blog/${blog.id}`}
               />
             </div>
           ))}
           <div className="col-12 page-navigation">
             <PageNavigation
               className="justify-content-center"
-              itemsCountPerPage={3}
-              totalItemsCount={mockData.blogs.length}
+              itemsCountPerPage={BLOG_ITEMS_PER_PAGE}
+              totalItemsCount={totalCount}
               onPageChange={handlePageChange}
             />
           </div>
@@ -48,6 +54,14 @@ const Blog = () => {
       </TransparentBox>
     </React.Fragment>
   );
+};
+
+Blog.propTypes = {
+  isLoading: PropTypes.bool,
+  message: PropTypes.string,
+  blogs: PropTypes.array,
+  totalCount: PropTypes.number,
+  dispatchGetBlogs: PropTypes.func,
 };
 
 export default Blog;

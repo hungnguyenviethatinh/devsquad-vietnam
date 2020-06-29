@@ -1,6 +1,8 @@
 export const API_URL_LIST = {
   CONTACT_US: '/contact-us',
   SUBSCRIBE: '/subscribe',
+  BLOGS: '/blogs',
+  BLOG: '/blog',
 };
 
 export const STATUS_CODE = {
@@ -10,3 +12,7 @@ export const STATUS_CODE = {
 export const STATUS_MESSAGE = {
   SUCCESS: 'success',
 };
+
+export const BLOG_ITEMS_PER_CLICK = 3;
+
+export const BLOG_ITEMS_PER_PAGE = 9;
