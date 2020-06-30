@@ -8,7 +8,7 @@ import TextArea from '../../components/TextArea';
 import TextField from '../../components/TextField';
 
 const Contact = (props) => {
-  const { isLoading, message, dispatchContactUs } = props;
+  const { message, dispatchContactUs } = props;
 
   const [data, setData] = useState({
     name: '',
@@ -29,9 +29,8 @@ const Contact = (props) => {
   };
 
   useEffect(() => {
-    console.log(isLoading);
     console.log(message);
-  }, [isLoading, message]);
+  }, [message]);
 
   return (
     <React.Fragment>
@@ -89,7 +88,7 @@ const Contact = (props) => {
               />
             </div>
             <div className="form-group">
-              <Button disabled={isLoading} type="submit" text="Drop message" />
+              <Button type="submit" text="Drop message" />
             </div>
           </form>
         </div>
@@ -99,7 +98,6 @@ const Contact = (props) => {
 };
 
 Contact.propTypes = {
-  isLoading: PropTypes.bool,
   message: PropTypes.string,
   dispatchContactUs: PropTypes.func,
 };

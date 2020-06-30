@@ -10,7 +10,7 @@ import { BLOG_ITEMS_PER_CLICK } from '../../core/Constants';
 import { aims } from '../../utils/data';
 
 const LandingPage = (props) => {
-  const { isLoading, message, blogs, totalCount, dispatchGetBlogs } = props;
+  const { message, blogs, totalCount, dispatchGetBlogs } = props;
 
   const [clickCount, setClickCount] = useState(1);
 
@@ -25,9 +25,8 @@ const LandingPage = (props) => {
   ]);
 
   useEffect(() => {
-    console.log(isLoading);
     console.log(message);
-  }, [isLoading, message]);
+  }, [message]);
 
   return (
     <React.Fragment>
@@ -78,11 +77,7 @@ const LandingPage = (props) => {
             </div>
           ))}
           <div className="col-12 button-wrapper">
-            <Button
-              disabled={isLoading}
-              text="View more blog posts"
-              onClick={handleShowMore}
-            />
+            <Button text="View more blog posts" onClick={handleShowMore} />
           </div>
         </div>
       </div>

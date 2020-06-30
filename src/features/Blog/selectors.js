@@ -13,7 +13,3 @@ export const getBlogs = createSelector([selectedState], (blog) =>
 export const getTotalCount = createSelector([selectedState], (blog) =>
   blog.get('totalCount')
 );
-
-export const getIsLoading = createSelector([selectedState], (blog) =>
-  blog.get('isLoading')
-);

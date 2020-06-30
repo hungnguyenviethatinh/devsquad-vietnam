@@ -7,7 +7,7 @@ import PageHeader from '../../components/PageHeader';
 import TextField from '../../components/TextField';
 
 const Subscribe = (props) => {
-  const { isLoading, message, dispatchSubscribe } = props;
+  const { message, dispatchSubscribe } = props;
 
   const [email, setEmail] = useState('');
 
@@ -21,9 +21,8 @@ const Subscribe = (props) => {
   };
 
   useEffect(() => {
-    console.log(isLoading);
     console.log(message);
-  }, [isLoading, message]);
+  }, [message]);
 
   return (
     <React.Fragment>
@@ -42,7 +41,7 @@ const Subscribe = (props) => {
               />
             </div>
             <div className="form-group">
-              <Button disabled={isLoading} type="submit" text="Subscribe now" />
+              <Button type="submit" text="Subscribe now" />
             </div>
           </form>
         </div>
@@ -52,7 +51,6 @@ const Subscribe = (props) => {
 };
 
 Subscribe.propTypes = {
-  isLoading: PropTypes.bool,
   message: PropTypes.string,
   dispatchSubscribe: PropTypes.func,
 };

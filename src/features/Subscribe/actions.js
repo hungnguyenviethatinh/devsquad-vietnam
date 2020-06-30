@@ -6,18 +6,22 @@ import {
   STATUS_MESSAGE,
 } from '../../core/Constants';
 
+import { dispatchToggleBlockUi } from '../Layout/actions';
+
 export const SUBSCRIBE_SUCCESS = 'SUBSCRIBE_SUCCESS';
 export const SUBSCRIBE_FAILURE = 'SUBSCRIBE_FAILURE';
-export const SUBSCRIBE_LOADING = 'SUBSCRIBE_FAILURE';
 
 export const dispatchSubscribe = ({ email }) => {
   return (dispatch) => {
     const data = {
       email,
     };
-    dispatch(actionSubscribeLoading(true));
+    dispatch(dispatchToggleBlockUi(true));
+
     Axios.post(API_URL_LIST.SUBSCRIBE, data)
       .then((response) => {
+        dispatch(dispatchToggleBlockUi(false));
+
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
           const { message } = data;
@@ -29,11 +33,12 @@ export const dispatchSubscribe = ({ email }) => {
         }
       })
       .catch((reason) => {
+        dispatch(dispatchToggleBlockUi(false));
+
         if (reason.response && reason.response.data) {
           const { data } = reason.reason;
           dispatch(actionSubscribeFailure(data.message));
         }
-        dispatch(actionSubscribeLoading(false));
       });
   };
 };
@@ -49,12 +54,5 @@ const actionSubscribeFailure = (message) => ({
   type: SUBSCRIBE_FAILURE,
   payload: {
     message,
-  },
-});
-
-const actionSubscribeLoading = (isLoading) => ({
-  type: SUBSCRIBE_LOADING,
-  payload: {
-    isLoading,
   },
 });

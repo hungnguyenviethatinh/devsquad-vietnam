@@ -6,8 +6,9 @@ import {
   STATUS_MESSAGE,
 } from '../../core/Constants';
 
+import { dispatchToggleBlockUi } from '../Layout/actions';
+
 export const CONTACT_US_SUCCESS = 'CONTACT_US_SUCCESS';
-export const CONTACT_US_LOADING = 'CONTACT_US_LOADING';
 export const CONTACT_US_FAILURE = 'CONTACT_US_FAILURE';
 
 export const dispatchContactUs = ({ name, email, message }) => {
@@ -18,9 +19,12 @@ export const dispatchContactUs = ({ name, email, message }) => {
       message,
     };
 
-    dispatch(actionContactUsLoading(true));
+    dispatch(dispatchToggleBlockUi(true));
+
     Axios.post(API_URL_LIST.CONTACT_US, data)
       .then((response) => {
+        dispatch(dispatchToggleBlockUi(false));
+
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
           const { message } = data;
@@ -32,21 +36,14 @@ export const dispatchContactUs = ({ name, email, message }) => {
         }
       })
       .catch((reason) => {
+        dispatch(dispatchToggleBlockUi(false));
         if (reason.response && reason.response.data) {
           const { data } = reason.reason;
           dispatch(actionContactUsFailure(data.message));
         }
-        dispatch(actionContactUsLoading(false));
       });
   };
 };
-
-const actionContactUsLoading = (isLoading) => ({
-  type: CONTACT_US_LOADING,
-  payload: {
-    isLoading,
-  },
-});
 
 const actionContactUsSuccess = (message) => ({
   type: CONTACT_US_SUCCESS,
