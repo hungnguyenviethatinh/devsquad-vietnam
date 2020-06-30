@@ -3,7 +3,7 @@ import Axios from '../../core/Axios';
 import {
   API_URL_LIST,
   STATUS_CODE,
-  STATUS_MESSAGE,
+  // STATUS_MESSAGE,
 } from '../../core/Constants';
 
 import { dispatchToggleBlockUi } from '../Layout/actions';
@@ -11,11 +11,11 @@ import { dispatchToggleBlockUi } from '../Layout/actions';
 export const GET_BLOGS_SUCCESS = 'GET_BLOGS_SUCCESS';
 export const GET_BLOGS_FAILURE = 'GET_BLOGS_FAILURE';
 
-export const dispatchGetBlogs = (page, pageSize) => {
+export const dispatchGetBlogs = (page, per_page) => {
   return (dispatch) => {
     const params = {
       page,
-      pageSize,
+      per_page,
     };
 
     dispatch(dispatchToggleBlockUi(true));
@@ -26,14 +26,15 @@ export const dispatchGetBlogs = (page, pageSize) => {
 
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
-          const { message } = data;
-          if (message === STATUS_MESSAGE.SUCCESS) {
-            dispatch(
-              actionGetBlogsSuccess(message, data.blogs, data.totalCount)
-            );
-          } else {
-            dispatch(actionGetBlogsFailure(message));
-          }
+          dispatch(actionGetBlogsSuccess('', data.result, data.total_count));
+          // const { message } = data;
+          // if (message === STATUS_MESSAGE.SUCCESS) {
+          //   dispatch(
+          //     actionGetBlogsSuccess(message, data.result, data.total_count)
+          //   );
+          // } else {
+          //   dispatch(actionGetBlogsFailure(message));
+          // }
         }
       })
       .catch((reason) => {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 import Box from '../../components/Box';
 import Button from '../../components/Button';
@@ -21,7 +22,11 @@ const Subscribe = (props) => {
   };
 
   useEffect(() => {
-    console.log(message);
+    if (message && message === 'success') {
+      toast(message, { type: 'success' });
+    } else if (message) {
+      toast(message, { type: 'error' });
+    }
   }, [message]);
 
   return (

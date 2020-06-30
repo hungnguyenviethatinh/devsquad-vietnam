@@ -31,13 +31,13 @@ const Blog = (props) => {
       <TransparentBox>
         <div className="row">
           {blogs.map((blog, index) => (
-            <div key={index} className="col-4">
+            <div key={index} className="blog-item col-4">
               <Card
-                image={blog.image}
+                // image={blog.image}
                 title={blog.title}
-                author={blog.author}
-                text={blog.text}
-                linkHref={`/blog/${blog.id}`}
+                author={`${blog.creator} | ${blog.created_time}`}
+                text={blog.description}
+                linkHref={`/blog/${blog.slug}`}
               />
             </div>
           ))}
