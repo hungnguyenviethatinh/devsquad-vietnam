@@ -9,7 +9,7 @@ import PageNavigation from '../../components/PageNavigation';
 import { BLOG_ITEMS_PER_PAGE } from '../../core/Constants';
 
 const Blog = (props) => {
-  const { isLoading, message, blogs, totalCount, dispatchGetBlogs } = props;
+  const { message, blogs, totalCount, dispatchGetBlogs } = props;
 
   const handlePageChange = (page) => {
     getBlogs(page);
@@ -22,9 +22,8 @@ const Blog = (props) => {
   useEffect(() => getBlogs(1), []);
 
   useEffect(() => {
-    console.log(isLoading);
     console.log(message);
-  }, [isLoading, message]);
+  }, [message]);
 
   return (
     <React.Fragment>
@@ -57,7 +56,6 @@ const Blog = (props) => {
 };
 
 Blog.propTypes = {
-  isLoading: PropTypes.bool,
   message: PropTypes.string,
   blogs: PropTypes.array,
   totalCount: PropTypes.number,

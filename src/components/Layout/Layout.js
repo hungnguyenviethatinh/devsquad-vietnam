@@ -1,18 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
+import BlockUi from 'react-block-ui';
+import { Loader } from 'react-loaders';
 
 import Header from './Header';
 import Footer from './Footer';
 
+import 'react-block-ui/style.css';
+import 'loaders.css/loaders.min.css';
 import './Layout.scss';
 
-const Layout = ({ component: Component, ...rest }) => {
+const Layout = ({ component: Component, isLoading, ...rest }) => {
   return (
     <Route
       {...rest}
       render={(matchProps) => (
-        <React.Fragment>
+        <BlockUi
+          tag="div"
+          blocking={isLoading}
+          loader={<Loader active type="ball-triangle-path" color="#2ea661" />}
+        >
           <Header />
           <div className="content-wrapper">
             <div className="content">
@@ -20,7 +28,7 @@ const Layout = ({ component: Component, ...rest }) => {
             </div>
             <Footer />
           </div>
-        </React.Fragment>
+        </BlockUi>
       )}
     />
   );
@@ -28,6 +36,7 @@ const Layout = ({ component: Component, ...rest }) => {
 
 Layout.propTypes = {
   component: PropTypes.any.isRequired,
+  isLoading: PropTypes.bool,
 };
 
 export default Layout;

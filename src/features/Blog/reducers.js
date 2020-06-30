@@ -1,13 +1,8 @@
 import Immutable from 'immutable';
 
-import {
-  GET_BLOGS_SUCCESS,
-  GET_BLOGS_FAILURE,
-  GET_BLOGS_LOADING,
-} from './actions';
+import { GET_BLOGS_SUCCESS, GET_BLOGS_FAILURE } from './actions';
 
 const initialState = Immutable.fromJS({
-  isLoading: false,
   message: '',
   blogs: [],
   totalCount: 0,
@@ -18,14 +13,11 @@ export default (state = initialState, action) => {
   switch (type) {
     case GET_BLOGS_SUCCESS:
       return state
-        .set('isLoading', false)
         .set('message', payload.message)
         .set('blogs', payload.blogs)
         .set('totalCount', payload.totalCount);
     case GET_BLOGS_FAILURE:
-      return state.set('isLoading', false).set('message', payload.message);
-    case GET_BLOGS_LOADING:
-      return state.set('isLoading', payload.isLoading);
+      return state.set('message', payload.message);
     default:
       return state;
   }

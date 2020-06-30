@@ -6,18 +6,21 @@ import {
   STATUS_MESSAGE,
 } from '../../core/Constants';
 
+import { dispatchToggleBlockUi } from '../Layout/actions';
+
 export const GET_BLOG_SUCCESS = 'GET_BLOG_SUCCESS';
 export const GET_BLOG_FAILURE = 'GET_BLOG_FAILURE';
-export const GET_BLOG_LOADING = 'GET_BLOG_LOADING';
 
 export const dispatchGetBlog = (id) => {
   return (dispatch) => {
     const url = `${API_URL_LIST}/${id}`;
 
-    dispatch(actionGetBlogLoading(true));
+    dispatch(dispatchToggleBlockUi(true));
 
     Axios.get(url)
       .then((response) => {
+        dispatch(dispatchToggleBlockUi(false));
+
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
           const { message } = data;
@@ -29,11 +32,12 @@ export const dispatchGetBlog = (id) => {
         }
       })
       .catch((reason) => {
+        dispatch(dispatchToggleBlockUi(false));
+
         if (reason.response && reason.response.data) {
           const { data } = reason.reason;
           dispatch(actionGetBlogFailure(data.message));
         }
-        dispatch(actionGetBlogLoading(false));
       });
   };
 };
@@ -50,12 +54,5 @@ const actionGetBlogFailure = (message) => ({
   type: GET_BLOG_FAILURE,
   payload: {
     message,
-  },
-});
-
-const actionGetBlogLoading = (isLoading) => ({
-  type: GET_BLOG_LOADING,
-  payload: {
-    isLoading,
   },
 });

@@ -9,7 +9,3 @@ export const getMessage = createSelector([selectedState], (blogPost) =>
 export const getBlog = createSelector([selectedState], (blogPost) =>
   blogPost.get('blog')
 );
-
-export const getIsLoading = createSelector([selectedState], (blogPost) =>
-  blogPost.get('isLoading')
-);

@@ -7,14 +7,13 @@ import ButtonLink from '../../components/ButtonLink';
 const BlogPost = (props) => {
   const { id } = useParams();
 
-  const { isLoading, message, blog, dispatchGetBlog } = props;
+  const { message, blog, dispatchGetBlog } = props;
 
   useEffect(() => dispatchGetBlog(id), []);
 
   useEffect(() => {
-    console.log(isLoading);
     console.log(message);
-  }, [isLoading, message]);
+  }, [message]);
 
   return (
     <div className="blog-post-wrapper">
@@ -49,7 +48,6 @@ const BlogPost = (props) => {
 };
 
 BlogPost.propTypes = {
-  isLoading: PropTypes.bool,
   message: PropTypes.string,
   blog: PropTypes.object,
   dispatchGetBlog: PropTypes.func,

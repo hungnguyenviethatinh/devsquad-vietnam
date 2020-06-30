@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
 import { dispatchSubscribe } from './actions';
-import { getIsLoading, getMessage } from './selectors';
+import { getMessage } from './selectors';
 
 import Subscribe from './component';
 
 const mapStateToProps = (state) => ({
-  isLoading: getIsLoading(state),
   message: getMessage(state),
 });
 
