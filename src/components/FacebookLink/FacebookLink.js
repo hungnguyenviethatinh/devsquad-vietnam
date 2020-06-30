@@ -12,7 +12,8 @@ const FacebookLink = (props) => {
     <div className="facebook-link-component">
       <a
         className={clsx(className, 'facebook-link-text')}
-        href="/"
+        href={`https://www.facebook.com/sharer/sharer.php?u=${location.origin}`}
+        rel="noreferrer"
         target="_blank"
       >
         <i

@@ -60,6 +60,7 @@
     "react-loaders": "^3.0.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
+    "react-toastify": "^6.0.6",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-immutable": "^4.0.0",

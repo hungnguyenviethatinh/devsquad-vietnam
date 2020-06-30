@@ -12,7 +12,8 @@ const LinkedinLink = (props) => {
     <div className="linkedin-link-component">
       <a
         className={clsx(className, 'linkedin-link-text')}
-        href="/"
+        href={`https://www.linkedin.com/sharing/share-offsite/?url=${location.origin}`}
+        rel="noreferrer"
         target="_blank"
       >
         <i

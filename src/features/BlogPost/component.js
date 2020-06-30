@@ -20,17 +20,32 @@ const BlogPost = (props) => {
       <h1 className="post-title">{blog.title}</h1>
       <div className="row">
         <div className="col-10">
-          <small className="post-author">{blog.author}</small>
+          <small className="post-author">{`${blog.creator} | ${blog.created_time}`}</small>
         </div>
         <div className="col-2">
           <div className="post-link-wrapper">
-            <a className="share-link" href="">
+            <a
+              className="share-link"
+              href={`https://www.facebook.com/sharer/sharer.php?u=${location.href}`}
+              rel="noreferrer"
+              target="_blank"
+            >
               <i className="fab fa-facebook-f"></i>
             </a>
-            <a className="share-link" href="">
+            <a
+              className="share-link"
+              href="https://twitter.com/intent/tweet"
+              rel="noreferrer"
+              target="_blank"
+            >
               <i className="fab fa-twitter"></i>
             </a>
-            <a className="share-link" href="">
+            <a
+              className="share-link"
+              href={`${location.href}`}
+              rel="noreferrer"
+              target="_blank"
+            >
               <i className="fas fa-share-alt"></i>
             </a>
           </div>
@@ -38,7 +53,7 @@ const BlogPost = (props) => {
       </div>
       <div
         className="post-text-wrapper"
-        dangerouslySetInnerHTML={{ __html: blog.text }}
+        dangerouslySetInnerHTML={{ __html: blog.content }}
       ></div>
       <div className="button-wrapper">
         <ButtonLink to="/blogs">Back to blog page</ButtonLink>

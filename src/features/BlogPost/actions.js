@@ -3,7 +3,7 @@ import Axios from '../../core/Axios';
 import {
   API_URL_LIST,
   STATUS_CODE,
-  STATUS_MESSAGE,
+  // STATUS_MESSAGE,
 } from '../../core/Constants';
 
 import { dispatchToggleBlockUi } from '../Layout/actions';
@@ -23,12 +23,13 @@ export const dispatchGetBlog = (id) => {
 
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
-          const { message } = data;
-          if (message === STATUS_MESSAGE.SUCCESS) {
-            dispatch(actionGetBlogSuccess(message, data.blog));
-          } else {
-            dispatch(actionGetBlogFailure(message));
-          }
+          dispatch(actionGetBlogSuccess('', data));
+          // const { message } = data;
+          // if (message === STATUS_MESSAGE.SUCCESS) {
+          //   dispatch(actionGetBlogSuccess(message, data.blog));
+          // } else {
+          //   dispatch(actionGetBlogFailure(message));
+          // }
         }
       })
       .catch((reason) => {
