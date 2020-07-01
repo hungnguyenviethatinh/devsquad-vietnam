@@ -13,7 +13,6 @@ export default (state = initialState, action) => {
   switch (type) {
     case GET_BLOGS_SUCCESS:
       return state
-        .set('message', payload.message)
         .set('blogs', payload.blogs)
         .set('totalCount', payload.totalCount);
     case GET_BLOGS_FAILURE:

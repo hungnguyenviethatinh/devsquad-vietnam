@@ -9,10 +9,10 @@ import PageHeader from '../../components/PageHeader';
 import TextArea from '../../components/TextArea';
 import TextField from '../../components/TextField';
 
-import { ValidEmailRegex } from '../../core/Constants';
+import { TOAST_TYPE, VALID_EMAIL_REGEX } from '../../core/Constants';
 
 const Contact = (props) => {
-  const { message, dispatchContactUs } = props;
+  const { open, type, message, dispatchContactUs, dispatchToggleToast } = props;
 
   const [data, setData] = useState({
     name: '',
@@ -38,12 +38,19 @@ const Contact = (props) => {
     });
   };
 
+  const handleReset = () => {
+    setData({ name: '', email: '', message: '' });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     let emailError = false,
       messageError = false;
-    if (!data.email.trim() || !ValidEmailRegex.test(data.email.toLowerCase())) {
+    if (
+      !data.email.trim() ||
+      !VALID_EMAIL_REGEX.test(data.email.toLowerCase())
+    ) {
       emailError = true;
     }
     if (!data.message.trim()) {
@@ -63,17 +70,14 @@ const Contact = (props) => {
   };
 
   useEffect(() => {
-    if (message && message === 'success') {
-      toast(message, { type: 'success' });
-      setData({
-        name: '',
-        email: '',
-        message: '',
-      });
-    } else if (message) {
-      toast(message, { type: 'error' });
+    if (open) {
+      toast(message, { type, onClose: () => dispatchToggleToast(false) });
+
+      if (type === TOAST_TYPE.SUCCESS) {
+        handleReset();
+      }
     }
-  }, [message]);
+  }, [open]);
 
   return (
     <React.Fragment>
@@ -143,8 +147,11 @@ const Contact = (props) => {
 };
 
 Contact.propTypes = {
+  open: PropTypes.bool,
+  type: PropTypes.string,
   message: PropTypes.string,
   dispatchContactUs: PropTypes.func,
+  dispatchToggleToast: PropTypes.func,
 };
 
 export default Contact;

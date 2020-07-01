@@ -30,7 +30,6 @@ const Layout = ({ component: Component, isLoading, ...rest }) => {
             </div>
             <Footer />
             <ToastContainer containerId="toastContainerId" transition={Slide} />
-            ;
           </div>
         </BlockUi>
       )}
