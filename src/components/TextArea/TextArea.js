@@ -5,10 +5,23 @@ import clsx from 'clsx';
 import './TextArea.scss';
 
 const TextArea = (props) => {
-  const { className, id, value, placeholder, rows, onChange, ...rest } = props;
+  const {
+    className,
+    id,
+    value,
+    placeholder,
+    rows,
+    onChange,
+    error,
+    ...rest
+  } = props;
   return (
     <textarea
-      className={clsx(className, 'textarea-component')}
+      className={clsx({
+        [className]: true,
+        ['textarea-component']: true,
+        error: error,
+      })}
       id={id}
       value={value}
       placeholder={placeholder}
@@ -25,6 +38,7 @@ TextArea.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   rows: PropTypes.number,
+  error: PropTypes.bool,
   onChange: PropTypes.func,
 };
 
@@ -34,6 +48,7 @@ TextArea.defaultProps = {
   value: '',
   placeholder: '',
   rows: 5,
+  error: false,
   onChange: () => {},
 };
 
