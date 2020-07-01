@@ -3,7 +3,6 @@ import Axios from '../../core/Axios';
 import {
   API_URL_LIST,
   STATUS_CODE,
-  // STATUS_MESSAGE,
 } from '../../core/Constants';
 
 import { dispatchToggleBlockUi } from '../Layout/actions';
@@ -26,15 +25,7 @@ export const dispatchGetBlogs = (page, per_page) => {
 
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
-          dispatch(actionGetBlogsSuccess('', data.result, data.total_count));
-          // const { message } = data;
-          // if (message === STATUS_MESSAGE.SUCCESS) {
-          //   dispatch(
-          //     actionGetBlogsSuccess(message, data.result, data.total_count)
-          //   );
-          // } else {
-          //   dispatch(actionGetBlogsFailure(message));
-          // }
+          dispatch(actionGetBlogsSuccess(data.result, data.total_count));
         }
       })
       .catch((reason) => {
@@ -48,10 +39,9 @@ export const dispatchGetBlogs = (page, per_page) => {
   };
 };
 
-const actionGetBlogsSuccess = (message, blogs, totalCount) => ({
+const actionGetBlogsSuccess = (blogs, totalCount) => ({
   type: GET_BLOGS_SUCCESS,
   payload: {
-    message,
     blogs,
     totalCount,
   },

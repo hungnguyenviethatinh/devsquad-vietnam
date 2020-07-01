@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case GET_BLOG_SUCCESS:
-      return state.set('message', payload.message).set('blog', payload.blog);
+      return state.set('blog', payload.blog);
     case GET_BLOG_FAILURE:
       return state.set('message', payload.message);
     default:

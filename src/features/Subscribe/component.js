@@ -7,10 +7,10 @@ import Button from '../../components/Button';
 import PageHeader from '../../components/PageHeader';
 import TextField from '../../components/TextField';
 
-import { ValidEmailRegex } from '../../core/Constants';
+import { TOAST_TYPE, VALID_EMAIL_REGEX } from '../../core/Constants';
 
 const Subscribe = (props) => {
-  const { message, dispatchSubscribe } = props;
+  const { open, type, message, dispatchSubscribe, dispatchToggleToast } = props;
 
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState(false);
@@ -25,7 +25,7 @@ const Subscribe = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!email.trim() || !ValidEmailRegex.test(email.toLowerCase())) {
+    if (!email.trim() || !VALID_EMAIL_REGEX.test(email.toLowerCase())) {
       setEmailError(true);
       return;
     }
@@ -34,13 +34,14 @@ const Subscribe = (props) => {
   };
 
   useEffect(() => {
-    if (message && message === 'success') {
-      toast(message, { type: 'success' });
-      setEmail('');
-    } else if (message) {
-      toast(message, { type: 'error' });
+    if (open) {
+      toast(message, { type, onClose: () => dispatchToggleToast(false) });
+
+      if (type === TOAST_TYPE.SUCCESS) {
+        setEmail('');
+      }
     }
-  }, [message]);
+  }, [open]);
 
   return (
     <React.Fragment>
@@ -70,8 +71,11 @@ const Subscribe = (props) => {
 };
 
 Subscribe.propTypes = {
+  open: PropTypes.bool,
+  type: PropTypes.string,
   message: PropTypes.string,
   dispatchSubscribe: PropTypes.func,
+  dispatchToggleToast: PropTypes.func,
 };
 
 export default Subscribe;

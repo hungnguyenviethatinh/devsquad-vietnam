@@ -7,6 +7,7 @@ import {
 } from '../../core/Constants';
 
 import { dispatchToggleBlockUi } from '../Layout/actions';
+import { dispatchToggleToast } from '../Contact/actions';
 
 export const SUBSCRIBE_SUCCESS = 'SUBSCRIBE_SUCCESS';
 export const SUBSCRIBE_FAILURE = 'SUBSCRIBE_FAILURE';
@@ -30,6 +31,7 @@ export const dispatchSubscribe = ({ email }) => {
           } else {
             dispatch(actionSubscribeFailure(message));
           }
+          dispatch(dispatchToggleToast(true));
         }
       })
       .catch((reason) => {
@@ -38,6 +40,7 @@ export const dispatchSubscribe = ({ email }) => {
         if (reason.response && reason.response.data) {
           const { data } = reason.reason;
           dispatch(actionSubscribeFailure(data.message));
+          dispatch(dispatchToggleToast(true));
         }
       });
   };
