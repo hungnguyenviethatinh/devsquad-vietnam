@@ -70,7 +70,7 @@ const LandingPage = (props) => {
               <Card
                 // image={blog.image}
                 title={blog.title}
-                author={`${blog.creator} | ${blog.created_time}`}
+                author={`${blog.creator} | ${blog.created_date}`}
                 text={blog.description}
                 linkHref={`/blog/${blog.slug}`}
               />

@@ -20,7 +20,7 @@ const BlogPost = (props) => {
       <h1 className="post-title">{blog.title}</h1>
       <div className="row">
         <div className="col-10">
-          <small className="post-author">{`${blog.creator} | ${blog.created_time}`}</small>
+          <small className="post-author">{`${blog.creator} | ${blog.created_date}`}</small>
         </div>
         <div className="col-2">
           <div className="post-link-wrapper">
@@ -34,7 +34,7 @@ const BlogPost = (props) => {
             </a>
             <a
               className="share-link"
-              href="https://twitter.com/intent/tweet"
+              href={`https://twitter.com/intent/tweet?url=${location.href}`}
               rel="noreferrer"
               target="_blank"
             >
@@ -42,7 +42,7 @@ const BlogPost = (props) => {
             </a>
             <a
               className="share-link"
-              href={`${location.href}`}
+              href={`https://plus.google.com/share?url=${location.href}`}
               rel="noreferrer"
               target="_blank"
             >
