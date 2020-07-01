@@ -7,23 +7,36 @@ import Button from '../../components/Button';
 import PageHeader from '../../components/PageHeader';
 import TextField from '../../components/TextField';
 
+import { ValidEmailRegex } from '../../core/Constants';
+
 const Subscribe = (props) => {
   const { message, dispatchSubscribe } = props;
 
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState(false);
 
   const handleEmailChange = (event) => {
-    setEmail(event.target.value);
+    const value = event.target.value;
+
+    setEmailError(!value.trim());
+    setEmail(value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (!email.trim() || !ValidEmailRegex.test(email.toLowerCase())) {
+      setEmailError(true);
+      return;
+    }
+
     dispatchSubscribe({ email });
   };
 
   useEffect(() => {
     if (message && message === 'success') {
       toast(message, { type: 'success' });
+      setEmail('');
     } else if (message) {
       toast(message, { type: 'error' });
     }
@@ -43,6 +56,7 @@ const Subscribe = (props) => {
                 placeholder="Enter email address"
                 value={email}
                 onChange={handleEmailChange}
+                error={emailError}
               />
             </div>
             <div className="form-group">

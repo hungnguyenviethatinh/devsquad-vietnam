@@ -13,12 +13,17 @@ const TextField = (props) => {
     value,
     placeholder,
     onChange,
+    error,
     ...rest
   } = props;
 
   return (
     <input
-      className={clsx(className, 'input-component')}
+      className={clsx({
+        [className]: true,
+        ['input-component']: true,
+        ['error']: error,
+      })}
       id={id}
       type={type}
       name={name}
@@ -38,6 +43,7 @@ TextField.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
+  error: PropTypes.bool,
 };
 
 TextField.defaultProps = {
@@ -47,6 +53,7 @@ TextField.defaultProps = {
   name: '',
   value: '',
   placeholder: '',
+  error: false,
   onChange: () => {},
 };
 

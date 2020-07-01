@@ -7,9 +7,17 @@ textarea::placeholder {
   line-height: 18px;
 }
 
+textarea.error::placeholder {
+  color: #dc3545 !important;
+}
+
 .textarea-component {
   background: #ffffff;
   border: 1.5px solid #e0e0e0;
   box-sizing: border-box;
   border-radius: 6px;
+}
+
+.textarea-component.error {
+  border-color: #dc3545 !important;
 }

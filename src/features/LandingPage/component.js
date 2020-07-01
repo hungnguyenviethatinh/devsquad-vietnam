@@ -88,7 +88,7 @@ const LandingPage = (props) => {
 LandingPage.propTypes = {
   isLoading: PropTypes.bool,
   message: PropTypes.string,
-  blogs: PropTypes.array,
+  blogs: PropTypes.any,
   totalCount: PropTypes.number,
   dispatchGetBlogs: PropTypes.func,
 };

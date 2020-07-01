@@ -57,7 +57,7 @@ const Blog = (props) => {
 
 Blog.propTypes = {
   message: PropTypes.string,
-  blogs: PropTypes.array,
+  blogs: PropTypes.any,
   totalCount: PropTypes.number,
   dispatchGetBlogs: PropTypes.func,
 };

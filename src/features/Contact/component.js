@@ -9,6 +9,8 @@ import PageHeader from '../../components/PageHeader';
 import TextArea from '../../components/TextArea';
 import TextField from '../../components/TextField';
 
+import { ValidEmailRegex } from '../../core/Constants';
+
 const Contact = (props) => {
   const { message, dispatchContactUs } = props;
 
@@ -18,21 +20,56 @@ const Contact = (props) => {
     message: '',
   });
 
+  const [onError, setOnError] = React.useState({
+    email: false,
+    message: false,
+  });
+
   const handleDataChange = (prop) => (event) => {
+    const value = event.target.value;
+
+    setOnError({
+      ...onError,
+      [prop]: !value.trim(),
+    });
     setData({
       ...data,
-      [prop]: event.target.value,
+      [prop]: value,
     });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    let emailError = false,
+      messageError = false;
+    if (!data.email.trim() || !ValidEmailRegex.test(data.email.toLowerCase())) {
+      emailError = true;
+    }
+    if (!data.message.trim()) {
+      messageError = true;
+    }
+
+    if (emailError || messageError) {
+      setOnError({
+        email: emailError,
+        message: messageError,
+      });
+
+      return;
+    }
+
     dispatchContactUs(data);
   };
 
   useEffect(() => {
     if (message && message === 'success') {
       toast(message, { type: 'success' });
+      setData({
+        name: '',
+        email: '',
+        message: '',
+      });
     } else if (message) {
       toast(message, { type: 'error' });
     }
@@ -83,6 +120,7 @@ const Contact = (props) => {
                 placeholder="Enter email address"
                 value={data.email}
                 onChange={handleDataChange('email')}
+                error={onError.email}
               />
             </div>
             <div className="form-group">
@@ -91,6 +129,7 @@ const Contact = (props) => {
                 placeholder="Your message"
                 value={data.message}
                 onChange={handleDataChange('message')}
+                error={onError.message}
               />
             </div>
             <div className="form-group">
