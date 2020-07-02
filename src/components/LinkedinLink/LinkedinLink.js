@@ -8,11 +8,13 @@ import './LinkedinLink.scss';
 const LinkedinLink = (props) => {
   const { className, color } = props;
 
+  const shareLink = encodeURIComponent(location.origin);
+
   return (
     <div className="linkedin-link-component">
       <a
         className={clsx(className, 'linkedin-link-text')}
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=${location.origin}`}
+        href={`https://www.linkedin.com/sharing/share-offsite?url=${shareLink}`}
         rel="noreferrer"
         target="_blank"
       >
