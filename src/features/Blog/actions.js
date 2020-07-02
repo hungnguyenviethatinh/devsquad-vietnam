@@ -1,9 +1,6 @@
 import Axios from '../../core/Axios';
 
-import {
-  API_URL_LIST,
-  STATUS_CODE,
-} from '../../core/Constants';
+import { API_URL_LIST, STATUS_CODE } from '../../core/Constants';
 
 import { dispatchToggleBlockUi } from '../Layout/actions';
 

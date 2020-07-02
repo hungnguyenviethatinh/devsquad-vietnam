@@ -7,7 +7,8 @@ import Card from '../../components/Card';
 
 import { BLOG_ITEMS_PER_CLICK } from '../../core/Constants';
 
-import { aims } from '../../utils/data';
+import { LANDING_PAGE_AIMS as aims } from '../../utils/AppData';
+import { formatDate } from '../../utils/DateTimeFormat';
 
 const LandingPage = (props) => {
   const { message, blogs, totalCount, dispatchGetBlogs } = props;
@@ -68,9 +69,8 @@ const LandingPage = (props) => {
           {blogs.map((blog, index) => (
             <div key={index} className="blog-item col-4">
               <Card
-                // image={blog.image}
                 title={blog.title}
-                author={`${blog.creator} | ${blog.created_date}`}
+                author={`${blog.creator} | ${formatDate(blog.created_date)}`}
                 text={blog.description}
                 linkHref={`/blog/${blog.slug}`}
               />

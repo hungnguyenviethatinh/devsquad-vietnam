@@ -5,7 +5,7 @@ import PageHeader from '../../components/PageHeader';
 import FacebookLink from '../../components/FacebookLink';
 import LinkedinLink from '../../components/LinkedinLink';
 
-import { introduction as aboutUs } from '../../utils/data';
+import { ABOUT_US as aboutUs } from '../../utils/AppData';
 
 const AboutUs = () => {
   return (

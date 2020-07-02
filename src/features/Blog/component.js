@@ -8,6 +8,8 @@ import PageNavigation from '../../components/PageNavigation';
 
 import { BLOG_ITEMS_PER_PAGE } from '../../core/Constants';
 
+import { formatDate } from '../../utils/DateTimeFormat';
+
 const Blog = (props) => {
   const { message, blogs, totalCount, dispatchGetBlogs } = props;
 
@@ -33,9 +35,8 @@ const Blog = (props) => {
           {blogs.map((blog, index) => (
             <div key={index} className="blog-item col-4">
               <Card
-                // image={blog.image}
                 title={blog.title}
-                author={`${blog.creator} | ${blog.created_date}`}
+                author={`${blog.creator} | ${formatDate(blog.created_date)}`}
                 text={blog.description}
                 linkHref={`/blog/${blog.slug}`}
               />
