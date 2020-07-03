@@ -1,6 +1,11 @@
-import { aims, introduction } from './data';
+import { LANDING_PAGE_AIMS as aims, ABOUT_US as aboutUs } from './Data';
+import { formatDate } from './utils/DateTimeFormat';
 
-export const data = {
+export const appData = {
   aims,
-  aboutUs: introduction,
+  aboutUs,
+};
+
+export const helpers = {
+  formatDate,
 };

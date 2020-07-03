@@ -2,7 +2,7 @@ import icon_001 from './images/icon_001.png';
 import icon_002 from './images/icon_001.png';
 import icon_003 from './images/icon_001.png';
 
-export const aims = [
+export const LANDING_PAGE_AIMS = [
   {
     image: icon_001,
     title: 'Goal',
@@ -23,7 +23,7 @@ export const aims = [
   },
 ];
 
-export const introduction = [
+export const ABOUT_US = [
   {
     title: 'Who we are',
     text:
