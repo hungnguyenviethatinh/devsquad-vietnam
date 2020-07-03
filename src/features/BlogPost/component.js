@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import ButtonLink from '../../components/ButtonLink';
 
+import { formatDate } from '../../utils/DateTimeFormat';
+
 const BlogPost = (props) => {
   const { id } = useParams();
 
@@ -15,18 +17,22 @@ const BlogPost = (props) => {
     console.log(message);
   }, [message]);
 
+  const shareLink = encodeURIComponent(location.href);
+
   return (
     <div className="blog-post-wrapper">
       <h1 className="post-title">{blog.title}</h1>
       <div className="row">
         <div className="col-10">
-          <small className="post-author">{`${blog.creator} | ${blog.created_date}`}</small>
+          <small className="post-author">{`${blog.creator} | ${formatDate(
+            blog.created_date
+          )}`}</small>
         </div>
         <div className="col-2">
           <div className="post-link-wrapper">
             <a
               className="share-link"
-              href={`https://www.facebook.com/sharer/sharer.php?u=${location.href}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${shareLink}`}
               rel="noreferrer"
               target="_blank"
             >
@@ -34,7 +40,7 @@ const BlogPost = (props) => {
             </a>
             <a
               className="share-link"
-              href={`https://twitter.com/intent/tweet?url=${location.href}`}
+              href={`https://twitter.com/intent/tweet?url=${shareLink}`}
               rel="noreferrer"
               target="_blank"
             >
@@ -42,7 +48,7 @@ const BlogPost = (props) => {
             </a>
             <a
               className="share-link"
-              href={`https://plus.google.com/share?url=${location.href}`}
+              href={`https://plus.google.com/share?url=${shareLink}`}
               rel="noreferrer"
               target="_blank"
             >
@@ -51,10 +57,13 @@ const BlogPost = (props) => {
           </div>
         </div>
       </div>
-      <div
-        className="post-text-wrapper"
-        dangerouslySetInnerHTML={{ __html: blog.content }}
-      ></div>
+      <div className="post-text-wrapper">
+        <p className="blog-description">{blog.description}</p>
+        <div
+          className="blog-content"
+          dangerouslySetInnerHTML={{ __html: blog.content }}
+        ></div>
+      </div>
       <div className="button-wrapper">
         <ButtonLink to="/blogs">Back to blog page</ButtonLink>
       </div>
