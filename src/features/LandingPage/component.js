@@ -68,7 +68,7 @@ const LandingPage = (props) => {
           {blogs.map((blog, index) => (
             <div key={index} className="blog-item col-4">
               <Card
-                // image={blog.image}
+                image={blog.background_image}
                 title={blog.title}
                 author={`${blog.creator} | ${blog.created_date}`}
                 text={blog.description}
