@@ -10,7 +10,9 @@ const Card = (props) => {
 
   return (
     <div className={clsx(className, 'card-component')} {...rest}>
-      <img src={image} className="card-img" alt={title} />
+      <Link title={title} to={linkHref}>
+        <img src={image} className="card-img" alt={title} />
+      </Link>
       <div className="card-text-wrapper">
         <Link className="card-title" title={title} to={linkHref}>
           {title}
