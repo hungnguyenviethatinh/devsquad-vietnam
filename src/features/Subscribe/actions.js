@@ -13,16 +13,16 @@ export const SUBSCRIBE_SUCCESS = 'SUBSCRIBE_SUCCESS';
 export const SUBSCRIBE_FAILURE = 'SUBSCRIBE_FAILURE';
 
 export const dispatchSubscribe = ({ email }) => {
-  return (dispatch) => {
-    const data = {
-      email,
-    };
+  return async (dispatch) => {
     dispatch(dispatchToggleBlockUi(true));
 
-    Axios.post(API_URL_LIST.SUBSCRIBE, data)
-      .then((response) => {
+    try {
+      const model = {
+        email,
+      };
+      const response = await Axios.post(API_URL_LIST.SUBSCRIBE, model);
+      if (response) {
         dispatch(dispatchToggleBlockUi(false));
-
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
           const { message } = data;
@@ -33,16 +33,16 @@ export const dispatchSubscribe = ({ email }) => {
           }
           dispatch(dispatchToggleToast(true));
         }
-      })
-      .catch((reason) => {
-        dispatch(dispatchToggleBlockUi(false));
+      }
+    } catch (reason) {
+      dispatch(dispatchToggleBlockUi(false));
 
-        if (reason.response && reason.response.data) {
-          const { data } = reason.reason;
-          dispatch(actionSubscribeFailure(data.message));
-          dispatch(dispatchToggleToast(true));
-        }
-      });
+      if (reason.response && reason.response.data) {
+        const { data } = reason.response;
+        dispatch(actionSubscribeFailure(data.message));
+        dispatch(dispatchToggleToast(true));
+      }
+    }
   };
 };
 

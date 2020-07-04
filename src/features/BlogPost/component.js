@@ -7,11 +7,17 @@ import ButtonLink from '../../components/ButtonLink';
 import { formatDate } from '../../utils/DateTimeFormat';
 
 const BlogPost = (props) => {
-  const { id } = useParams();
+  const { slug } = useParams();
 
   const { message, blog, dispatchGetBlog } = props;
 
-  useEffect(() => dispatchGetBlog(id), []);
+  const getBlog = async (slug) => {
+    await dispatchGetBlog(slug);
+  };
+
+  useEffect(() => {
+    getBlog(slug);
+  }, []);
 
   useEffect(() => {
     console.log(message);

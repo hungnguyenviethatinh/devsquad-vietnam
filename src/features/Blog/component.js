@@ -17,11 +17,13 @@ const Blog = (props) => {
     getBlogs(page);
   };
 
-  const getBlogs = (page, pageSize = BLOG_ITEMS_PER_PAGE) => {
-    dispatchGetBlogs(page, pageSize);
+  const getBlogs = async (page = 1, pageSize = BLOG_ITEMS_PER_PAGE) => {
+    await dispatchGetBlogs(page, pageSize);
   };
 
-  useEffect(() => getBlogs(1), []);
+  useEffect(() => {
+    getBlogs();
+  }, []);
 
   useEffect(() => {
     console.log(message);
