@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import './FacebookLink.scss';
 
 const FacebookLink = (props) => {
-  const { className, color } = props;
+  const { className, color, share } = props;
 
   const shareLink = encodeURIComponent(location.origin);
 
@@ -14,7 +14,7 @@ const FacebookLink = (props) => {
     <div className="facebook-link-component">
       <a
         className={clsx(className, 'facebook-link-text')}
-        href={`https://www.facebook.com/sharer/sharer.php?u=${shareLink}`}
+        href={share ? `https://www.facebook.com/sharer/sharer.php?u=${shareLink}` : 'https://www.facebook.com/devsquad.io'}
         rel="noreferrer"
         target="_blank"
       >

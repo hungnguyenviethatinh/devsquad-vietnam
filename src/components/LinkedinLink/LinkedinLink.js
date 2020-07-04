@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import './LinkedinLink.scss';
 
 const LinkedinLink = (props) => {
-  const { className, color } = props;
+  const { className, color, share } = props;
 
   const shareLink = encodeURIComponent(location.origin);
 
@@ -14,7 +14,7 @@ const LinkedinLink = (props) => {
     <div className="linkedin-link-component">
       <a
         className={clsx(className, 'linkedin-link-text')}
-        href={`https://www.linkedin.com/sharing/share-offsite?url=${shareLink}`}
+        href={share ? `https://www.linkedin.com/sharing/share-offsite?url=${shareLink}` : 'https://www.linkedin.com/company/devsquad-recruiting-services'}
         rel="noreferrer"
         target="_blank"
       >
