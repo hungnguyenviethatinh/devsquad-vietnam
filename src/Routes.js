@@ -28,7 +28,7 @@ const routes = [
   },
   {
     exact: true,
-    path: '/blog/:id',
+    path: '/blog/:slug',
     component: BlogPost,
   },
   {

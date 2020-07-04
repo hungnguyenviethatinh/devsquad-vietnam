@@ -21,9 +21,13 @@ const LandingPage = (props) => {
     }
   };
 
-  useEffect(() => dispatchGetBlogs(clickCount, BLOG_ITEMS_PER_CLICK), [
-    clickCount,
-  ]);
+  const getBlogs = async () => {
+    await dispatchGetBlogs(clickCount, BLOG_ITEMS_PER_CLICK);
+  };
+
+  useEffect(() => {
+    getBlogs();
+  }, [clickCount]);
 
   useEffect(() => {
     console.log(message);

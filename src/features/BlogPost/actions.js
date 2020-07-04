@@ -8,28 +8,28 @@ export const GET_BLOG_SUCCESS = 'GET_BLOG_SUCCESS';
 export const GET_BLOG_FAILURE = 'GET_BLOG_FAILURE';
 
 export const dispatchGetBlog = (id) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     const url = `${API_URL_LIST}/${id}`;
 
     dispatch(dispatchToggleBlockUi(true));
 
-    Axios.get(url)
-      .then((response) => {
+    try {
+      const response = await Axios.get(url);
+      if (response) {
         dispatch(dispatchToggleBlockUi(false));
-
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
           dispatch(actionGetBlogSuccess(data));
         }
-      })
-      .catch((reason) => {
-        dispatch(dispatchToggleBlockUi(false));
+      }
+    } catch (reason) {
+      dispatch(dispatchToggleBlockUi(false));
 
-        if (reason.response && reason.response.data) {
-          const { data } = reason.reason;
-          dispatch(actionGetBlogFailure(data.message));
-        }
-      });
+      if (reason.response && reason.response.data) {
+        const { data } = reason.response;
+        dispatch(actionGetBlogFailure(data.message));
+      }
+    }
   };
 };
 
