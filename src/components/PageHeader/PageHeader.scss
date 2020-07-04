@@ -15,7 +15,6 @@
     align-items: center;
     height: 100%;
     justify-content: center;
-    padding: 0px 215px;
   }
 
   .leading {
@@ -27,6 +26,41 @@
     line-height: 44px;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 120px;
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  .page-header-component {
+    .page-header-component-wrapper {
+      padding: 0px;
+    }
+
+    .leading {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .page-header-component {
+    .page-header-component-wrapper {
+      padding: 0 5rem;
+    }
+
+    .leading {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .page-header-component {
+    .page-header-component-wrapper {
+      padding: 0px 215px;
+    }
+
+    .leading {
+      margin-bottom: 120px;
+    }
   }
 }

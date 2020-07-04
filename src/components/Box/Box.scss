@@ -12,3 +12,21 @@
 .shadow-none {
   box-shadow: none !important;
 }
+
+@media screen and (max-width: 991.98px) {
+  .box-component {
+    margin: 0px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .box-component {
+    margin: 0 5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .box-component {
+    margin: -76px 215px auto;
+  }
+}

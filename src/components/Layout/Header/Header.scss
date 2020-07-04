@@ -2,10 +2,6 @@
   background: #ffffff;
   height: 68px;
   justify-content: flex-start;
-  padding-bottom: 0;
-  padding-left: 239px;
-  padding-right: 230px;
-  padding-top: 0;
 }
 
 .link-home {
@@ -24,6 +20,7 @@
 
 .menu-item {
   padding: 0px 18px;
+  text-transform: uppercase;
 }
 
 .action-link {
@@ -35,7 +32,14 @@
 
 .action-link-flex {
   display: flex;
-  flex-direction: row;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.share-icon-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
 }
@@ -43,4 +47,31 @@
 .subscribe-link {
   width: 100px;
   height: 38px;
+}
+
+@media screen and (max-width: 991.98px) {
+  .navbar-menu {
+    justify-content: space-between;
+    padding: 9px;
+  }
+
+  .btn-toggler {
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .navbar-menu {
+    padding: 0 5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar-menu {
+    padding: 0px 230px 0px 239px;
+  }
 }
