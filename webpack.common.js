@@ -12,6 +12,10 @@ const copyWebPackPlugin = new CopyWebPackPlugin({
   patterns: [
     { from: 'public/favicon.ico', to: 'favicon.ico', toType: 'file' },
     { from: 'public/manifest.json', to: 'manifest.json', toType: 'file' },
+    { from: 'public/.conf', to: '.conf', toType: 'file' },
+    { from: 'public/.htaccess', to: '.htaccess', toType: 'file' },
+    { from: 'public/_redirects', to: '_redirects', toType: 'file' },
+    { from: 'public/web.config', to: 'web.config', toType: 'file' },
   ],
 });
 

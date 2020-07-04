@@ -14,6 +14,7 @@ module.exports = merge(common, {
   output: {
     filename: 'static/js/[name].bundle.js',
     path: path.resolve(__dirname, 'build'),
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -65,6 +66,7 @@ module.exports = merge(common, {
   devServer: {
     contentBase: 'build',
     compress: true,
+    historyApiFallback: true,
     port: 9000,
   },
   watch: true,
