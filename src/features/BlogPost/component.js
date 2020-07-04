@@ -22,13 +22,13 @@ const BlogPost = (props) => {
   return (
     <div className="blog-post-wrapper">
       <h1 className="post-title">{blog.title}</h1>
-      <div className="row">
-        <div className="col-10">
+      <div className="post-author-wrapper row">
+        <div className="col-9 col-md-10 col-lg-10 col-xl-10">
           <small className="post-author">{`${blog.creator} | ${formatDate(
             blog.created_date
           )}`}</small>
         </div>
-        <div className="col-2">
+        <div className="col-3 col-md-2 col-lg-2 col-xl-2">
           <div className="post-link-wrapper">
             <a
               className="share-link"

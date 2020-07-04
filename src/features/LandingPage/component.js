@@ -49,10 +49,11 @@ const LandingPage = (props) => {
             Est. in 2016, DevSquad is a boutique recruiting and headhunting
             firm.
           </p>
-          <div className="aims">
+          <div className="aims row">
             {aims.map((aim, index) => (
               <Aim
                 key={index}
+                className="col-12 col-md-4 col-lg-4 col-xl-4"
                 image={aim.image}
                 title={aim.title}
                 text={aim.text}
@@ -67,8 +68,12 @@ const LandingPage = (props) => {
             <h1 className="leading">Blog</h1>
           </div>
           {blogs.map((blog, index) => (
-            <div key={index} className="blog-item col-4">
+            <div
+              key={index}
+              className="blog-item col-12 col-md-4 col-lg-4 col-xl-4"
+            >
               <Card
+                image={blog.background_image}
                 title={blog.title}
                 author={`${blog.creator} | ${formatDate(blog.created_date)}`}
                 text={blog.description}

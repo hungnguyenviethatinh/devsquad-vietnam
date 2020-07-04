@@ -7,13 +7,20 @@ import { ToastContainer, Slide } from 'react-toastify';
 
 import Header from './Header';
 import Footer from './Footer';
+import SideBar from './SideBar';
 
 import 'react-block-ui/style.css';
 import 'loaders.css/loaders.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './Layout.scss';
 
-const Layout = ({ component: Component, isLoading, ...rest }) => {
+const Layout = ({
+  component: Component,
+  isLoading,
+  open,
+  dispatchToggleSideBar,
+  ...rest
+}) => {
   return (
     <Route
       {...rest}
@@ -23,8 +30,9 @@ const Layout = ({ component: Component, isLoading, ...rest }) => {
           blocking={isLoading}
           loader={<Loader active type="ball-triangle-path" color="#2ea661" />}
         >
-          <Header />
+          <Header open={!open} onOpen={() => dispatchToggleSideBar(true)} />
           <div className="content-wrapper">
+            <SideBar open={open} onClose={() => dispatchToggleSideBar(false)} />
             <div className="content">
               <Component {...matchProps} />
             </div>
@@ -40,6 +48,8 @@ const Layout = ({ component: Component, isLoading, ...rest }) => {
 Layout.propTypes = {
   component: PropTypes.any.isRequired,
   isLoading: PropTypes.bool,
+  open: PropTypes.bool,
+  dispatchToggleSideBar: PropTypes.func,
 };
 
 export default Layout;

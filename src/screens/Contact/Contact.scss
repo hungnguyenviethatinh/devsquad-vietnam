@@ -1,5 +1,7 @@
 .box-wrapper {
-  padding: 40px 194px;
+  @media screen and (min-width: 1200px) {
+    padding: 40px 194px;
+  }
 
   .leading {
     color: #333333;
@@ -39,5 +41,17 @@
         margin-right: 10px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  .box-wrapper {
+    padding: 40px 9px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .box-wrapper {
+    padding: 40px 5rem;
   }
 }

@@ -68,7 +68,6 @@
 
     .aims {
       display: flex;
-      flex-flow: row nowrap;
       align-items: flex-start;
       justify-content: space-between;
       padding: 40px 20px 60px;
@@ -103,5 +102,35 @@
       padding-top: 20px;
       text-align: center;
     }
+  }
+}
+
+@media screen and (max-width: 991.98px) {
+  .page-header-wrapper {
+    .page-header {
+      padding: 0px;
+    }
+
+    .leading-wrapper {
+      padding: 0 9px;
+    }
+  }
+
+  .aim-wrapper {
+    height: auto;
+
+    .aim {
+      padding: 40px 0px 0px;
+
+      .aims {
+        padding: 40px 0 60px;
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+    }
+  }
+
+  .blog-wrapper {
+    padding: 0px;
   }
 }

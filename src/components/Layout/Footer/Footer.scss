@@ -1,7 +1,6 @@
 .footer-wrapper {
   height: 196px;
   margin: 0;
-  padding: 0 215px;
 }
 
 .footer {
@@ -52,4 +51,22 @@
   text-align: center;
   width: 171px;
   height: 16px;
+}
+
+@media screen and (max-width: 991.98px) {
+  .footer-wrapper {
+    padding: 0px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .footer-wrapper {
+    padding: 0px 5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .footer-wrapper {
+    padding: 0 215px;
+  }
 }

@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
 
-import { getIsLoading } from './selectors';
+import { dispatchToggleSideBar } from './actions';
+import { getIsLoading, getOpen } from './selectors';
 import Layout from '../../components/Layout';
 
 const mapStateToProps = (state) => ({
   isLoading: getIsLoading(state),
+  open: getOpen(state),
 });
 
-export default connect(mapStateToProps)(Layout);
+const dispatcher = {
+  dispatchToggleSideBar,
+};
+
+export default connect(mapStateToProps, dispatcher)(Layout);
