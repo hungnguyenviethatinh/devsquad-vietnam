@@ -132,5 +132,10 @@
 
   .blog-wrapper {
     padding: 0px;
+
+    .blog {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }
