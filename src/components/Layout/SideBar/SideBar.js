@@ -12,6 +12,7 @@ import './SideBar.scss';
 
 const SideBar = (props) => {
   const { open, onClose } = props;
+
   return (
     <div
       className={clsx({
@@ -20,7 +21,12 @@ const SideBar = (props) => {
       })}
     >
       <nav className="navbar navbar-menu navbar-expand-lg navbar-light">
-        <Link className="navbar-brand link-home" id="home" to="/">
+        <Link
+          className="navbar-brand link-home"
+          id="home"
+          to="/"
+          onClick={onClose}
+        >
           <img className="img-logo" alt="DevSquad VietNam" src={logo} />
         </Link>
         <button
@@ -33,13 +39,23 @@ const SideBar = (props) => {
         </button>
       </nav>
       <div className="menu">
-        <Link className="menu-item" id="about-us" to="/about-us">
+        <Link
+          className="menu-item"
+          id="about-us"
+          to="/about-us"
+          onClick={onClose}
+        >
           About Us
         </Link>
-        <Link className="menu-item" id="contact" to="/contact">
+        <Link
+          className="menu-item"
+          id="contact"
+          to="/contact"
+          onClick={onClose}
+        >
           Contact
         </Link>
-        <Link className="menu-item" id="blogs" to="/blogs">
+        <Link className="menu-item" id="blogs" to="/blogs" onClick={onClose}>
           Blog
         </Link>
       </div>
@@ -48,7 +64,11 @@ const SideBar = (props) => {
           <FacebookLink />
           <LinkedinLink />
         </div>
-        <ButtonLink className="subscribe-link" to="/subscribe">
+        <ButtonLink
+          className="subscribe-link"
+          to="/subscribe"
+          onClick={onClose}
+        >
           Subscribe
         </ButtonLink>
       </div>

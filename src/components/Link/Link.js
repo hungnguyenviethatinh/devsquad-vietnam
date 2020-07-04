@@ -15,6 +15,7 @@ const Link = (props) => {
     id,
     title,
     to,
+    onClick,
     ...rest
   } = props;
 
@@ -27,6 +28,7 @@ const Link = (props) => {
       id={id}
       title={title}
       to={to}
+      onClick={onClick}
       {...rest}
     >
       {children}
@@ -43,6 +45,7 @@ Link.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
   to: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 Link.defaultProps = {
@@ -54,6 +57,7 @@ Link.defaultProps = {
   id: '',
   title: '',
   to: '',
+  onClick: () => {},
 };
 
 export default Link;
