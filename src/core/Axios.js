@@ -5,11 +5,8 @@ import { API_URL } from './Configs';
 const Axios = axios.create({
   baseURL: API_URL,
   headers: {
-    Accept: 'application/json, text/plain, */*',
-    'Access-Control-Allow-Header': '*',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': '*',
-    'Content-Type': 'application/json',
+    Accept: 'application/json,application/x-www-form-urlencoded,text/plain,*/*',
+    'Content-Type': 'application/json;charset=utf-8',
   },
 });
 
