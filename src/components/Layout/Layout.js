@@ -37,7 +37,7 @@ const Layout = ({
               <Component {...matchProps} />
             </div>
             <Footer />
-            <ToastContainer containerId="toastContainerId" transition={Slide} />
+            <ToastContainer containerId="toastContainerId" autoClose={1500} transition={Slide} />
           </div>
         </BlockUi>
       )}
