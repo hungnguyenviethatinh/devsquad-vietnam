@@ -32,6 +32,7 @@ module.exports = merge(common, {
             options: {
               name: '[contenthash].[ext]',
               outputPath: 'static/images/',
+              publicPath: '/static/images/',
             },
           },
         ],
@@ -44,6 +45,7 @@ module.exports = merge(common, {
             options: {
               name: '[contenthash].[ext]',
               outputPath: 'static/fonts/',
+              publicPath: '/static/fonts/',
             },
           },
         ],
