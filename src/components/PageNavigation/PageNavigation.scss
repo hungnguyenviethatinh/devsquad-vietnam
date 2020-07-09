@@ -24,6 +24,11 @@
     text-align: center;
     width: auto;
     height: 100%;
+
+    &:hover {
+      background: #2ea661;
+      color: #ffffff;
+    }
   }
 }
 
