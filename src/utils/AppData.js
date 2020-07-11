@@ -1,6 +1,6 @@
-import icon_001 from './images/icon_001.png';
-import icon_002 from './images/icon_001.png';
-import icon_003 from './images/icon_001.png';
+import icon_001 from '../static/images/icon_001.png';
+import icon_002 from '../static/images/icon_002.png';
+import icon_003 from '../static/images/icon_003.png';
 
 export const LANDING_PAGE_AIMS = [
   {
