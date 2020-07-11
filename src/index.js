@@ -2,6 +2,8 @@ import '@babel/polyfill';
 
 import 'bootstrap/scss/bootstrap.scss';
 import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
+import './styles/fonts.scss';
 import './styles/index.scss';
 
 import 'jquery/dist/jquery.slim.js';

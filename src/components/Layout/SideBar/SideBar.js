@@ -7,7 +7,7 @@ import FacebookLink from '../../FacebookLink';
 import Link from '../../Link';
 import LinkedinLink from '../../LinkedinLink';
 
-import logo from '../Header/DevSquadVietNam.png';
+import logo from '../Header/logo_001.png';
 import './SideBar.scss';
 
 const SideBar = (props) => {
