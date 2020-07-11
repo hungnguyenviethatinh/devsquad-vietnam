@@ -6,7 +6,7 @@ import FacebookLink from '../../FacebookLink';
 import Link from '../../Link';
 import LinkedinLink from '../../LinkedinLink';
 
-import logo from './DevSquadVietNam.png';
+import logo from './logo_001.png';
 import './Header.scss';
 
 const Header = (props) => {
