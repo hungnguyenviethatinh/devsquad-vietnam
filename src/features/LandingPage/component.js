@@ -11,7 +11,7 @@ import { LANDING_PAGE_AIMS as aims } from '../../utils/AppData';
 import { formatDate } from '../../utils/DateTimeFormat';
 
 const LandingPage = (props) => {
-  const { message, blogs, totalCount, dispatchGetBlogs } = props;
+  const { blogs, totalCount, dispatchGetBlogs } = props;
 
   const [clickCount, setClickCount] = useState(1);
 
@@ -28,10 +28,6 @@ const LandingPage = (props) => {
   useEffect(() => {
     getBlogs();
   }, [clickCount]);
-
-  useEffect(() => {
-    console.log(message);
-  }, [message]);
 
   return (
     <React.Fragment>
