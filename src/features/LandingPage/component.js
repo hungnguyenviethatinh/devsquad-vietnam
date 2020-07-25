@@ -11,7 +11,7 @@ import { LANDING_PAGE_AIMS as aims } from '../../utils/AppData';
 import { formatDate } from '../../utils/DateTimeFormat';
 
 const LandingPage = (props) => {
-  const { message, blogs, totalCount, dispatchGetBlogs } = props;
+  const { blogs, totalCount, dispatchGetBlogs } = props;
 
   const [clickCount, setClickCount] = useState(1);
 
@@ -28,10 +28,6 @@ const LandingPage = (props) => {
   useEffect(() => {
     getBlogs();
   }, [clickCount]);
-
-  useEffect(() => {
-    console.log(message);
-  }, [message]);
 
   return (
     <React.Fragment>
@@ -50,8 +46,7 @@ const LandingPage = (props) => {
           <h1 className="leading">Aim higher</h1>
           <p className="sub-leading">
             Specialized IT Recruiting in Vietnam <br />
-            Est. in 2016, DevSquad is a boutique recruiting and headhunting
-            firm.
+            Est. in 2018, DevSquad is a recruiting and headhunting firm.
           </p>
           <div className="aims row">
             {aims.map((aim, index) => (
@@ -81,7 +76,7 @@ const LandingPage = (props) => {
                 title={blog.title}
                 author={`${blog.creator} | ${formatDate(blog.created_date)}`}
                 text={blog.description}
-                linkHref={`/blog/${blog.slug}`}
+                linkHref={`/blog/${blog.id}`}
               />
             </div>
           ))}
