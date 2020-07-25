@@ -40,7 +40,7 @@ const Blog = (props) => {
                 title={blog.title}
                 author={`${blog.creator} | ${formatDate(blog.created_date)}`}
                 text={blog.description}
-                linkHref={`/blog/${blog.slug}`}
+                linkHref={`/blog/${blog.id}`}
               />
             </div>
           ))}
