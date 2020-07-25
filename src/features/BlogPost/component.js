@@ -7,9 +7,10 @@ import ButtonLink from '../../components/ButtonLink';
 import { formatDate } from '../../utils/DateTimeFormat';
 
 const BlogPost = (props) => {
+  const url = encodeURIComponent(location.href);
   const { slug } = useParams();
 
-  const { message, blog, dispatchGetBlog } = props;
+  const { blog, dispatchGetBlog } = props;
 
   const getBlog = async (slug) => {
     await dispatchGetBlog(slug);
@@ -18,12 +19,6 @@ const BlogPost = (props) => {
   useEffect(() => {
     getBlog(slug);
   }, []);
-
-  useEffect(() => {
-    console.log(message);
-  }, [message]);
-
-  const shareLink = encodeURIComponent(location.href);
 
   return (
     <div className="blog-post-wrapper">
@@ -38,7 +33,7 @@ const BlogPost = (props) => {
           <div className="post-link-wrapper">
             <a
               className="share-link"
-              href={`https://www.facebook.com/sharer/sharer.php?u=${shareLink}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
               rel="noreferrer"
               target="_blank"
             >
@@ -46,7 +41,7 @@ const BlogPost = (props) => {
             </a>
             <a
               className="share-link"
-              href={`https://twitter.com/intent/tweet?url=${shareLink}`}
+              href={`https://twitter.com/intent/tweet?url=${url}`}
               rel="noreferrer"
               target="_blank"
             >
@@ -54,7 +49,7 @@ const BlogPost = (props) => {
             </a>
             <a
               className="share-link"
-              href={`https://plus.google.com/share?url=${shareLink}`}
+              href={`https://plus.google.com/share?url=${url}`}
               rel="noreferrer"
               target="_blank"
             >
