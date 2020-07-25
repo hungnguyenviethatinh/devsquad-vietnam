@@ -5,26 +5,18 @@ import icon_003 from '../static/images/icon_003.png';
 export const LANDING_PAGE_AIMS = [
   {
     image: icon_001,
-    title: 'Goal',
-    text:
-      'With a high level of focus, specializing only in IT, ' +
-      'and with equally high level of expertise, ' +
-      'DevSquad aims high.',
+    title: 'Passion',
+    text: 'Our three passions are Technology, Understanding people and Connecting people.'
   },
   {
     image: icon_002,
-    title: 'How High',
-    text:
-      'Not to be just at the top in terms of providing recruiting, ' +
-      'consulting and headhunting service, ' +
-      'but to disrupt the recruiting sector and go well beyond what recruiting is today.',
+    title: 'Aim Higher',
+    text: 'Higher than perfectly understanding your requirements, we aim to proactively help you extend your knowledge and guarantee you will learn something new about tech, career path, interviews, when working with our recruiting partners.',
   },
   {
     image: icon_003,
-    title: 'Mission Statements',
-    text:
-      'Redefine what you expect from your recruiting partner, ' +
-      'take your talent acquisition to the next level.',
+    title: 'Mission Statement',
+    text: 'Redefine what you expect from your recruiting partners.',
   },
 ];
 
@@ -34,7 +26,7 @@ export const ABOUT_US = [
     text:
       'Devsquad Recruiting Services Ltd. is a recruiting ' +
       'and headhunting firm specialized in IT industry, ' +
-      'which was established in 2018.',
+      'which was established in 2019.',
   },
   {
     title: 'Why Partner with DevSquad?',
