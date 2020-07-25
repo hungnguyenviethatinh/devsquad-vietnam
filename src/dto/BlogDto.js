@@ -1,14 +1,16 @@
 export function BlogDto(blog) {
-  this.id = blog.id || '';
+  const blogDto = blog || {};
+
+  this.id = blogDto.id || '';
   this.background_image =
-    blog.backgroundImage ||
+    blogDto.backgroundImage ||
     'https://ichef.bbci.co.uk/news/1024/cpsprodpb/83D7/production/_111515733_gettyimages-1208779325.jpg';
-  this.title = blog.title || '';
-  this.slug = blog.slug || '';
+  this.title = blogDto.title || '';
+  this.slug = blogDto.slug || '';
   this.creator = 'DevSquad';
-  this.created_date = blog.createdAt || '';
-  this.description = blog.description || '';
-  this.content = blog.content || '';
+  this.created_date = blogDto.createdAt || '';
+  this.description = blogDto.description || '';
+  this.content = blogDto.content || '';
 }
 
 export function BlogListDto(blogs) {

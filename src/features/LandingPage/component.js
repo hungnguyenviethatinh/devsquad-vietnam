@@ -46,8 +46,7 @@ const LandingPage = (props) => {
           <h1 className="leading">Aim higher</h1>
           <p className="sub-leading">
             Specialized IT Recruiting in Vietnam <br />
-            Est. in 2016, DevSquad is a boutique recruiting and headhunting
-            firm.
+            Est. in 2018, DevSquad is a recruiting and headhunting firm.
           </p>
           <div className="aims row">
             {aims.map((aim, index) => (
