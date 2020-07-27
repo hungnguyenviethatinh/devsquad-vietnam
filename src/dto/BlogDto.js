@@ -14,7 +14,5 @@ export function BlogDto(blog) {
 }
 
 export function BlogListDto(blogs) {
-  return blogs.map(transformBlog);
+  return blogs.map(blog => new BlogDto(blog));
 }
-
-const transformBlog = (blog) => new BlogDto(blog);
