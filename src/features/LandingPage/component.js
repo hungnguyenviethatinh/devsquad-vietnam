@@ -14,9 +14,11 @@ const LandingPage = (props) => {
   const { blogs, totalCount, dispatchGetBlogs } = props;
 
   const [clickCount, setClickCount] = useState(1);
+  const [disabled, setDisabled] = useState(false);
+  const [latestBlogs, setLatestBlogs] = useState([]);
 
   const handleShowMore = () => {
-    if (blogs.length < totalCount) {
+    if (latestBlogs.length < totalCount) {
       setClickCount(clickCount + 1);
     }
   };
@@ -28,6 +30,14 @@ const LandingPage = (props) => {
   useEffect(() => {
     getBlogs();
   }, [clickCount]);
+
+  useEffect(() => {
+    setLatestBlogs([...latestBlogs, ...blogs]);
+  }, [blogs]);
+
+  useEffect(() => {
+    setDisabled(latestBlogs.length >= totalCount);
+  }, [latestBlogs]);
 
   return (
     <React.Fragment>
@@ -66,7 +76,7 @@ const LandingPage = (props) => {
           <div className="col-12">
             <h1 className="leading">Blog</h1>
           </div>
-          {blogs.map((blog, index) => (
+          {latestBlogs.map((blog, index) => (
             <div
               key={index}
               className="blog-item col-12 col-md-4 col-lg-4 col-xl-4"
@@ -81,7 +91,11 @@ const LandingPage = (props) => {
             </div>
           ))}
           <div className="col-12 button-wrapper">
-            <Button text="View more blog posts" onClick={handleShowMore} />
+            <Button
+              disabled={disabled}
+              text="View more blog posts"
+              onClick={handleShowMore}
+            />
           </div>
         </div>
       </div>
