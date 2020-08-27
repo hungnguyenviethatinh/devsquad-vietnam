@@ -4,7 +4,7 @@
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.4)
     ),
-    url('./image_001.png');
+    url('../../static/images/image_001.png');
   background-repeat: no-repeat;
   background-size: cover;
   height: 300px;
@@ -41,7 +41,7 @@
 
 .aim-wrapper {
   background: #ffffff;
-  height: 498px;
+  height: auto;
 
   .aim {
     padding: 40px 215px;

@@ -4,12 +4,14 @@ import { API_URL_LIST, STATUS_CODE } from '../../core/Constants';
 
 import { dispatchToggleBlockUi } from '../Layout/actions';
 
+import { BlogDto } from '../../dto/BlogDto';
+
 export const GET_BLOG_SUCCESS = 'GET_BLOG_SUCCESS';
 export const GET_BLOG_FAILURE = 'GET_BLOG_FAILURE';
 
 export const dispatchGetBlog = (id) => {
   return async (dispatch) => {
-    const url = `${API_URL_LIST}/${id}`;
+    const url = `${API_URL_LIST.BLOGS}/${id}`;
 
     dispatch(dispatchToggleBlockUi(true));
 
@@ -17,9 +19,10 @@ export const dispatchGetBlog = (id) => {
       const response = await Axios.get(url);
       if (response) {
         dispatch(dispatchToggleBlockUi(false));
+
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
-          dispatch(actionGetBlogSuccess(data));
+          dispatch(actionGetBlogSuccess(new BlogDto(data)));
         }
       }
     } catch (reason) {
