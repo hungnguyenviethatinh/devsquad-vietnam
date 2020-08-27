@@ -4,24 +4,41 @@ import { API_URL_LIST, STATUS_CODE } from '../../core/Constants';
 
 import { dispatchToggleBlockUi } from '../Layout/actions';
 
+import { BlogListDto } from '../../dto/BlogDto';
+import { 
+  parseTotalFromContentRange,
+  createRangePaginationQuery
+} from '../../utils';
+
 export const GET_BLOGS_SUCCESS = 'GET_BLOGS_SUCCESS';
 export const GET_BLOGS_FAILURE = 'GET_BLOGS_FAILURE';
 
-export const dispatchGetBlogs = (page, per_page) => {
+export const dispatchGetBlogs = (page, perPage) => {
   return async (dispatch) => {
     dispatch(dispatchToggleBlockUi(true));
 
     try {
-      const params = {
-        page,
-        per_page,
-      };
-      const response = await Axios.get(API_URL_LIST.BLOGS, { params });
+      const paginationQuery = createRangePaginationQuery(page, perPage);
+      const url = `${API_URL_LIST.BLOGS}?${paginationQuery}`;
+      const response = await Axios.get(url);
       if (response) {
         dispatch(dispatchToggleBlockUi(false));
+
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
-          dispatch(actionGetBlogsSuccess(data.result, data.total_count));
+          const total = parseTotalFromContentRange(
+            response.headers['content-range']
+          );
+          const formattedData = {
+            total_count: total,
+            result: new BlogListDto(data),
+          };
+          dispatch(
+            actionGetBlogsSuccess(
+              formattedData.result,
+              formattedData.total_count
+            )
+          );
         }
       }
     } catch (reason) {

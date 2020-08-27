@@ -11,12 +11,14 @@ import { LANDING_PAGE_AIMS as aims } from '../../utils/AppData';
 import { formatDate } from '../../utils/DateTimeFormat';
 
 const LandingPage = (props) => {
-  const { message, blogs, totalCount, dispatchGetBlogs } = props;
+  const { blogs, totalCount, dispatchGetBlogs } = props;
 
   const [clickCount, setClickCount] = useState(1);
+  const [disabled, setDisabled] = useState(false);
+  const [latestBlogs, setLatestBlogs] = useState([]);
 
   const handleShowMore = () => {
-    if (blogs.length < totalCount) {
+    if (latestBlogs.length < totalCount) {
       setClickCount(clickCount + 1);
     }
   };
@@ -30,8 +32,12 @@ const LandingPage = (props) => {
   }, [clickCount]);
 
   useEffect(() => {
-    console.log(message);
-  }, [message]);
+    setLatestBlogs([...latestBlogs, ...blogs]);
+  }, [blogs]);
+
+  useEffect(() => {
+    setDisabled(latestBlogs.length >= totalCount);
+  }, [latestBlogs]);
 
   return (
     <React.Fragment>
@@ -50,8 +56,7 @@ const LandingPage = (props) => {
           <h1 className="leading">Aim higher</h1>
           <p className="sub-leading">
             Specialized IT Recruiting in Vietnam <br />
-            Est. in 2016, DevSquad is a boutique recruiting and headhunting
-            firm.
+            Est. in 2019, DevSquad is a recruiting and headhunting firm.
           </p>
           <div className="aims row">
             {aims.map((aim, index) => (
@@ -71,7 +76,7 @@ const LandingPage = (props) => {
           <div className="col-12">
             <h1 className="leading">Blog</h1>
           </div>
-          {blogs.map((blog, index) => (
+          {latestBlogs.map((blog, index) => (
             <div
               key={index}
               className="blog-item col-12 col-md-4 col-lg-4 col-xl-4"
@@ -81,12 +86,16 @@ const LandingPage = (props) => {
                 title={blog.title}
                 author={`${blog.creator} | ${formatDate(blog.created_date)}`}
                 text={blog.description}
-                linkHref={`/blog/${blog.slug}`}
+                linkHref={`/blog/${blog.id}`}
               />
             </div>
           ))}
           <div className="col-12 button-wrapper">
-            <Button text="View more blog posts" onClick={handleShowMore} />
+            <Button
+              disabled={disabled}
+              text="View more blog posts"
+              onClick={handleShowMore}
+            />
           </div>
         </div>
       </div>
