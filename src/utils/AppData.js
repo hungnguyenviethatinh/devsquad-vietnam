@@ -1,47 +1,80 @@
-import icon_001 from './images/icon_001.png';
-import icon_002 from './images/icon_001.png';
-import icon_003 from './images/icon_001.png';
+import icon_001 from '../static/images/icon_001.png';
+import icon_002 from '../static/images/icon_002.png';
+import icon_003 from '../static/images/icon_003.png';
 
 export const LANDING_PAGE_AIMS = [
   {
     image: icon_001,
-    title: 'Goal',
-    text:
-      'With a high level of focus, specializing only in IT, and with equally high level of expertise, DevSquad aims high',
+    title: 'Passion',
+    text: 'Our three passions are Technology, Understanding people and Connecting people.'
   },
   {
     image: icon_002,
-    title: 'How High',
-    text:
-      'Not to be just at the top in terms of providing recruiting, consulting and headhunting service, but to disrupt the recruiting sector and go well beyond what recruiting is today.',
+    title: 'Aim Higher',
+    text: 'Higher than perfectly understanding your requirements, we aim to proactively help you extend your knowledge and guarantee you will learn something new about tech, career path, interviews, when working with our recruiting partners.',
   },
   {
     image: icon_003,
     title: 'Mission Statement',
-    text:
-      'Redefine what you expect from your recruiting partner, take your talent acquisition to the next level.',
+    text: 'Redefine what you expect from your recruiting partners.',
   },
 ];
 
 export const ABOUT_US = [
   {
-    title: 'Who we are',
+    title: 'Who we are?',
     text:
-      'Marketing practice has been occurring for millennia, but marketing theory emerged in the early twentieth century. The contemporary marketing mix, or the 4 Ps, which has become the dominant framework for marketing management decisions, was first published in 1960.[3] In services marketing, an extended marketing mix is used, typically comprising 7 Ps, made up of the original 4 Ps extended by process, people, and physical evidence.[4] Occasionally service marketers will refer to 8 Ps, comprising these 7 Ps plus performance.[5]',
+      'Devsquad Recruiting Services Ltd. is a recruiting ' +
+      'and headhunting firm specialized in IT industry, ' +
+      'which was established in 2019.',
   },
   {
-    title: 'What we do',
+    title: 'Why Partner with DevSquad?',
     text:
-      'Marketing practice has been occurring for millennia, but marketing theory emerged in the early twentieth century. The contemporary marketing mix, or the 4 Ps, which has become the dominant framework for marketing management decisions, was first published in 1960.[3] In services marketing, an extended marketing mix is used, typically comprising 7 Ps, made up of the original 4 Ps extended by process, people, and physical evidence.[4] Occasionally service marketers will refer to 8 Ps, comprising these 7 Ps plus performance.[5]',
+      'With our nation wide network, and expertise in IT, ' +
+      'we can bring you the best level of talent. ' +
+      'Devsquad is committed to building strong long-term partnerships ' +
+      'with clients and candidates.',
   },
   {
-    title: 'The grass is always greener on this side',
+    title: 'Our Brand',
     text:
-      'Marketing practice has been occurring for millennia, but marketing theory emerged in the early twentieth century. The contemporary marketing mix, or the 4 Ps, which has become the dominant framework for marketing management decisions, was first published in 1960.[3] In services marketing, an extended marketing mix is used, typically comprising 7 Ps, made up of the original 4 Ps extended by process, people, and physical evidence.[4] Occasionally service marketers will refer to 8 Ps, comprising these 7 Ps plus performance.[5]',
+      'DevSquad’s brand stands for innovation, ' +
+      'vision and disruptive thinking on how effective recruiting services can be.',
   },
   {
-    title: 'The grass is always greener on this side',
+    title: 'Client Relationships',
     text:
-      'Marketing practice has been occurring for millennia, but marketing theory emerged in the early twentieth century. The contemporary marketing mix, or the 4 Ps, which has become the dominant framework for marketing management decisions, was first published in 1960.[3] In services marketing, an extended marketing mix is used, typically comprising 7 Ps, made up of the original 4 Ps extended by process, people, and physical evidence.[4] Occasionally service marketers will refer to 8 Ps, comprising these 7 Ps plus performance.[5]',
+      'We believe that success in recruiting means ' +
+      'being the go-to team out client for any recruiting need. ' +
+      'Advice on recruiting, on the local IT industry any HR/ Staffing. ' +
+      'DevSquad places the highest emphasis on understanding ' +
+      'our clients needs, technology, and company culture ' +
+      'to ensure we function as an organic extension of their recruiting department.',
+  },
+  {
+    title: 'What makes DevSquad unique?',
+    text:
+      'We aim for professional and high quality in every aspect out consultants, ' +
+      'out candidates resources and services. ' +
+      'DevSquad is committed to building strong long-term partnerships with clients and candidates.',
+  },
+  {
+    title: 'Our Consultants',
+    text: 'Our consultants are carefully selected and trained to.',
+  },
+  {
+    title: 'Our Candidates',
+    text:
+      'Our comprehensive and fast growing database is highly specialized, ' +
+      'to allow candidates of all levels from interns in IT ' +
+      'to highly specialized knowledge workers and experts.',
+  },
+  {
+    title: 'Our Assessments Service',
+    text:
+      'Our high level of expertise in the Vietnamese IT industry gives us access to the candidates ' +
+      'we source to provide you assessments of their skill level, ' +
+      'and save you the cost and effort of skilled personnel required to screen and interview candidates.',
   },
 ];

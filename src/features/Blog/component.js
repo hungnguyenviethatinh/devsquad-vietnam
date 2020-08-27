@@ -11,7 +11,7 @@ import { BLOG_ITEMS_PER_PAGE } from '../../core/Constants';
 import { formatDate } from '../../utils/DateTimeFormat';
 
 const Blog = (props) => {
-  const { message, blogs, totalCount, dispatchGetBlogs } = props;
+  const { blogs, totalCount, dispatchGetBlogs } = props;
 
   const handlePageChange = (page) => {
     getBlogs(page);
@@ -24,10 +24,6 @@ const Blog = (props) => {
   useEffect(() => {
     getBlogs();
   }, []);
-
-  useEffect(() => {
-    console.log(message);
-  }, [message]);
 
   return (
     <React.Fragment>
@@ -44,7 +40,7 @@ const Blog = (props) => {
                 title={blog.title}
                 author={`${blog.creator} | ${formatDate(blog.created_date)}`}
                 text={blog.description}
-                linkHref={`/blog/${blog.slug}`}
+                linkHref={`/blog/${blog.id}`}
               />
             </div>
           ))}
