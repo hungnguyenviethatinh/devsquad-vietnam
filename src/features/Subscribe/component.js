@@ -48,8 +48,11 @@ const Subscribe = (props) => {
       <PageHeader title="Subscribe" />
       <Box>
         <div className="box-wrapper">
-          <h1 className="leading">Enter some text here please</h1>
-          <p className="sub-leading">Enter some text here please</p>
+          {/* <h1 className="leading">Enter some text here please</h1> */}
+          <p className="sub-leading">
+            Subscribe to our newsletter and stay in the loop with the latest and
+            greatest Devsquad has to offer.
+          </p>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <TextField
