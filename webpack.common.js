@@ -16,6 +16,20 @@ const copyWebPackPlugin = new CopyWebPackPlugin({
     { from: 'public/.htaccess', to: '.htaccess', toType: 'file' },
     { from: 'public/_redirects', to: '_redirects', toType: 'file' },
     { from: 'public/web.config', to: 'web.config', toType: 'file' },
+    { from: 'public/images/2.png', to: 'static/images/2.png', toType: 'file' },
+    { from: 'public/images/5.png', to: 'static/images/5.png', toType: 'file' },
+    { from: 'public/images/8.png', to: 'static/images/8.png', toType: 'file' },
+    { from: 'public/images/11.png', to: 'static/images/11.png', toType: 'file' },
+    { from: 'public/images/12.png', to: 'static/images/12.png', toType: 'file' },
+    { from: 'public/images/18.png', to: 'static/images/18.png', toType: 'file' },
+    { from: 'public/images/36.png', to: 'static/images/36.png', toType: 'file' },
+    { from: 'public/images/DevsquadLogo.png', to: 'static/images/DevsquadLogo.png', toType: 'file' },
+    { from: 'public/images/DevsquadWorkshop.jpg', to: 'static/images/DevsquadWorkshop.jpg', toType: 'file' },
+    { from: 'public/images/image2.jpg', to: 'static/images/image2.jpg', toType: 'file' },
+    { from: 'public/images/image3.jpg', to: 'static/images/image3.jpg', toType: 'file' },
+    { from: 'public/images/NewYear2021.jpg', to: 'static/images/NewYear2021.jpg', toType: 'file' },
+    { from: 'public/images/Technology.jpg', to: 'static/images/Technology.jpg', toType: 'file' },
+    { from: 'public/images/vws1.png', to: 'static/images/vws1.png', toType: 'file' }
   ],
 });
 
