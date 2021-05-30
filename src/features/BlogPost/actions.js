@@ -11,7 +11,7 @@ export const GET_BLOG_FAILURE = 'GET_BLOG_FAILURE';
 
 export const dispatchGetBlog = (id) => {
   return async (dispatch) => {
-    const url = `${API_URL_LIST.BLOGS}/${id}`;
+    const url = `${API_URL_LIST.BLOG}/${id}`;
 
     dispatch(dispatchToggleBlockUi(true));
 

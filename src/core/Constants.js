@@ -1,8 +1,8 @@
 export const API_URL_LIST = {
-  CONTACT_US: '/contact-us',
-  SUBSCRIBE: '/subscribe',
-  BLOGS: '/blogs',
-  BLOG: '/blog-by-slug',
+  CONTACT_US: '/api/contact-us',
+  SUBSCRIBE: '/api/subscribe',
+  BLOGS: '/api/blogs',
+  BLOG: '/api/blog-by-slug',
 };
 
 export const STATUS_CODE = {

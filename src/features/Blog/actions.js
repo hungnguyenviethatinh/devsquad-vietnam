@@ -26,12 +26,9 @@ export const dispatchGetBlogs = (page, perPage) => {
 
         const { status, data } = response;
         if (status === STATUS_CODE.SUCCESS) {
-          const total = parseTotalFromContentRange(
-            response.headers['content-range']
-          );
           const formattedData = {
-            total_count: total,
-            result: new BlogListDto(data),
+            total_count: data.total_count,
+            result: new BlogListDto(data.blogs),
           };
           dispatch(
             actionGetBlogsSuccess(
