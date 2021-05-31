@@ -4,6 +4,7 @@ import Contact from './screens/Contact';
 import Blog from './screens/Blog';
 import BlogPost from './screens/BlogPost';
 import Subscribe from './screens/Subscribe';
+import NotFoundScreen from './screens/404/404';
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/subscribe',
     component: Subscribe,
   },
+  {
+    exact: true,
+    path: '*',
+    component: NotFoundScreen,
+  }
 ];
 
 export default routes;
