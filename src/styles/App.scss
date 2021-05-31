@@ -1,0 +1,18 @@
+.item {
+  height: 378px;
+
+  .text {
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+
+    &.title {
+      -webkit-line-clamp: 2;
+    }
+
+    &.description {
+      -webkit-line-clamp: 3;
+    }
+  }
+}

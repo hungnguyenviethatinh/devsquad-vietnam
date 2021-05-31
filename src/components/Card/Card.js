@@ -14,12 +14,11 @@ const Card = (props) => {
         <img src={image} className="card-img" alt={title} />
       </Link>
       <div className="card-text-wrapper">
-        <Link className="card-title" title={title} to={linkHref}>
+        <Link className="card-title text title" title={title} to={linkHref}>
           {title}
         </Link>
-        <br />
-        <small className="card-author">{author}</small>
-        <p className="card-text">{text}</p>
+        <p className="card-author">{author}</p>
+        <p className="card-text text description">{text}</p>
       </div>
     </div>
   );

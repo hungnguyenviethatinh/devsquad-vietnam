@@ -33,7 +33,7 @@ const Blog = (props) => {
           {blogs.map((blog, index) => (
             <div
               key={index}
-              className="blog-item col-12 col-md-4 col-lg-4 col-xl-4"
+              className="blog-item item col-12 col-md-4 col-lg-4 col-xl-4"
             >
               <Card
                 image={blog.background_image}
